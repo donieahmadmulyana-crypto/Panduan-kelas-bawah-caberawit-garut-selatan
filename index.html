@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Pegangan Cabe Rawit PPG Garut Selatan - Panduan Digital</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Scheherazade New for Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        amber: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                        sand: {
+                            50: '#fdfbf7',
+                            100: '#f7f4ed',
+                            200: '#eee9dd',
+                            800: '#4a443a',
+                            900: '#2c2720',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        arabic: ['"Scheherazade New"', 'Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .font-arabic {
+            font-family: 'Scheherazade New', 'Amiri', serif;
+            direction: rtl;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #059669;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #047857;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .print-only {
+                display: block !important;
+            }
+            body {
+                background: white;
+                color: black;
+            }
+            .content-area {
+                margin-left: 0 !important;
+                padding: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-sand-50 text-slate-800 font-sans h-full flex flex-col md:flex-row overflow-hidden">
+
+    <!-- MOBILE HEADER -->
+    <header class="md:hidden bg-emerald-800 text-white p-4 flex items-center justify-between shadow-md z-30 no-print">
+        <div class="flex items-center space-x-3">
+            <button id="toggleMobileSidebar" class="p-2 rounded-lg bg-emerald-700 hover:bg-emerald-600 focus:outline-none">
+                <i class="fas fa-bars text-lg"></i>
+            </button>
+            <div>
+                <h1 class="font-bold text-sm leading-tight">Cabe Rawit PPG Garut Selatan</h1>
+                <p class="text-xs text-amber-300">Kurikulum Kelas Bawah (PAUD & SD 1-3)</p>
+            </div>
+        </div>
+        <button onclick="openFlashcardModal()" class="px-2.5 py-1.5 bg-amber-500 hover:bg-amber-600 text-white text-xs font-medium rounded-lg shadow flex items-center gap-1">
+            <i class="fas fa-clone"></i> Flashcard
+        </button>
+    </header>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-80 bg-white border-r border-slate-200 flex flex-col transition-transform duration-300 transform -translate-x-full md:translate-x-0 md:static md:z-auto shadow-lg md:shadow-none no-print">
+        <!-- Sidebar Header / Logo -->
+        <div class="p-5 bg-gradient-to-br from-emerald-900 to-emerald-800 text-white flex flex-col items-center text-center relative border-b border-emerald-700">
+            <button id="closeMobileSidebar" class="md:hidden absolute top-3 right-3 text-emerald-200 hover:text-white text-lg p-1">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="w-16 h-16 rounded-full bg-white p-1.5 shadow-md mb-2 flex items-center justify-center">
+                <div class="w-full h-full rounded-full border-2 border-emerald-600 flex items-center justify-center bg-emerald-50 text-emerald-800 font-bold text-xl">
+                    <i class="fas fa-book-quran"></i>
+                </div>
+            </div>
+            <h2 class="font-bold text-base tracking-wide text-amber-300">PPG SAK JAGAT RAT</h2>
+            <p class="text-xs font-semibold text-emerald-100 uppercase tracking-widest mt-0.5">GARUT SELATAN</p>
+            <p class="text-[10px] text-emerald-200 mt-1 italic">"Be The Teacher Of The World"</p>
+            <span class="mt-2 text-[11px] bg-amber-500 text-slate-900 font-semibold px-2.5 py-0.5 rounded-full shadow-sm">
+                Edisi Tersinkronisasi Lengkap
+            </span>
+        </div>
+
+        <!-- Global Search Bar -->
+        <div class="p-3 bg-sand-100 border-b border-slate-200">
+            <div class="relative">
+                <i class="fas fa-search absolute left-3 top-2.5 text-slate-400 text-sm"></i>
+                <input type="text" id="globalSearch" placeholder="Cari doa, asmaul husna, adab..." 
+                    class="w-full pl-9 pr-8 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-transparent">
+                <button id="clearSearch" class="hidden absolute right-2.5 top-2 text-slate-400 hover:text-slate-600 text-xs">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="flex-1 overflow-y-auto p-3 space-y-1 text-xs">
+            <div class="px-2 py-1 font-semibold text-[11px] text-slate-400 uppercase tracking-wider">Buku Panduan</div>
+
+            <button onclick="navigateTo('sampul')" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 font-medium transition active-nav" data-target="sampul">
+                <i class="fas fa-book-open text-emerald-600 w-4 text-center"></i>
+                <span>Sampul & Beranda</span>
+            </button>
+
+            <button onclick="navigateTo('bagian-a')" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 font-medium transition" data-target="bagian-a">
+                <i class="fas fa-clock text-emerald-600 w-4 text-center"></i>
+                <span class="text-left">A. Jadwal & Alokasi KBM (75 Mnt)</span>
+            </button>
+
+            <button onclick="navigateTo('bagian-b')" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 font-medium transition" data-target="bagian-b">
+                <i class="fas fa-table-cells text-emerald-600 w-4 text-center"></i>
+                <span class="text-left">B. Matriks Target Capaian (8 Smt)</span>
+            </button>
+
+            <div class="pt-2 pb-1 px-2 font-semibold text-[11px] text-slate-400 uppercase tracking-wider">Silabus Rinci (Bagian C)</div>
+
+            <button onclick="navigateTo('asmaul-husna')" class="nav-item w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 font-medium transition" data-target="asmaul-husna">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-star text-amber-500 w-4 text-center"></i>
+                    <span>C.1 Hafalan Asmaul Husna (1-80)</span>
+                </div>
+                <span id="badge-asmaul" class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded-full font-semibold">0/80</span>
+            </button>
+
+            <button onclick="navigateTo('doa-harian')" class="nav-item w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 font-medium transition" data-target="doa-harian">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-hands-praying text-emerald-600 w-4 text-center"></i>
+                    <span>C.2 Do'a Harian Terpadu (30)</span>
+                </div>
+                <span id="badge-doa" class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded-full font-semibold">0/30</span>
+            </button>
+
+            <button onclick="navigateTo('surat-pendek')" class="nav-item w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 font-medium transition" data-target="surat-pendek">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-quran text-emerald-600 w-4 text-center"></i>
+                    <span>C.3 Hafalan Surat Pendek (19)</span>
+                </div>
+                <span id="badge-surat" class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded-full font-semibold">0/19</span>
+            </button>
+
+            <button onclick="navigateTo('dalil-utama')" class="nav-item w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 font-medium transition" data-target="dalil-utama">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-quote-right text-emerald-600 w-4 text-center"></i>
+                    <span>C.4 Hafalan 6 Dalil Utama</span>
+                </div>
+                <span id="badge-dalil" class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded-full font-semibold">0/6</span>
+            </button>
+
+            <button onclick="navigateTo('keilmuan-ibadah')" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 font-medium transition" data-target="keilmuan-ibadah">
+                <i class="fas fa-kaaba text-emerald-600 w-4 text-center"></i>
+                <span class="text-left">C.5 Keilmuan, Kefahaman & Ibadah</span>
+            </button>
+
+            <button onclick="navigateTo('akhlaq-adab')" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 font-medium transition" data-target="akhlaq-adab">
+                <i class="fas fa-heart text-rose-500 w-4 text-center"></i>
+                <span class="text-left">C.6 Akhlaq & Adab (18 Aspek)</span>
+            </button>
+
+            <button onclick="navigateTo('kemandirian')" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 font-medium transition" data-target="kemandirian">
+                <i class="fas fa-user-shield text-emerald-600 w-4 text-center"></i>
+                <span class="text-left">C.7 Kemandirian & Catatan</span>
+            </button>
+        </nav>
+
+        <!-- Progress Summary Footer -->
+        <div class="p-3.5 bg-slate-50 border-t border-slate-200 text-xs">
+            <div class="flex justify-between items-center mb-1 text-[11px] font-semibold text-slate-600">
+                <span>Total Kemajuan Hafalan</span>
+                <span id="overallProgressText" class="text-emerald-700 font-bold">0%</span>
+            </div>
+            <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                <div id="overallProgressBar" class="bg-gradient-to-r from-emerald-600 to-amber-500 h-full w-0 transition-all duration-500"></div>
+            </div>
+            <div class="mt-2 flex justify-between items-center text-[10px] text-slate-500">
+                <button onclick="resetProgress()" class="text-rose-600 hover:underline">
+                    <i class="fas fa-rotate-left"></i> Reset Progres
+                </button>
+                <button onclick="window.print()" class="text-slate-600 hover:text-slate-900">
+                    <i class="fas fa-print"></i> Cetak Halaman
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+
+        <!-- TOP BAR / TOOLBAR -->
+        <div class="bg-white border-b border-slate-200 px-4 py-2.5 flex items-center justify-between no-print shadow-sm z-10">
+            <!-- Filter Kelas -->
+            <div class="flex items-center space-x-1.5 overflow-x-auto py-0.5 text-xs">
+                <span class="text-slate-500 font-medium hidden sm:inline mr-1 text-[11px]">Filter Jenjang:</span>
+                <button onclick="filterGrade('all')" class="grade-filter bg-emerald-700 text-white px-2.5 py-1 rounded-md text-[11px] font-medium transition" data-grade="all">Semua</button>
+                <button onclick="filterGrade('paud')" class="grade-filter bg-slate-100 text-slate-700 hover:bg-slate-200 px-2.5 py-1 rounded-md text-[11px] font-medium transition" data-grade="paud">PAUD</button>
+                <button onclick="filterGrade('sd1')" class="grade-filter bg-slate-100 text-slate-700 hover:bg-slate-200 px-2.5 py-1 rounded-md text-[11px] font-medium transition" data-grade="sd1">SD Kelas 1</button>
+                <button onclick="filterGrade('sd2')" class="grade-filter bg-slate-100 text-slate-700 hover:bg-slate-200 px-2.5 py-1 rounded-md text-[11px] font-medium transition" data-grade="sd2">SD Kelas 2</button>
+                <button onclick="filterGrade('sd3')" class="grade-filter bg-slate-100 text-slate-700 hover:bg-slate-200 px-2.5 py-1 rounded-md text-[11px] font-medium transition" data-grade="sd3">SD Kelas 3</button>
+            </div>
+
+            <!-- Controls: Font size & Flashcards -->
+            <div class="flex items-center space-x-2 text-xs">
+                <!-- Text Size Adjuster -->
+                <div class="hidden sm:flex items-center bg-slate-100 rounded-lg p-0.5 border border-slate-200">
+                    <button onclick="setFontSize('normal')" class="size-btn px-2 py-0.5 rounded text-[11px] font-semibold bg-white shadow-sm text-slate-800" data-size="normal">A</button>
+                    <button onclick="setFontSize('large')" class="size-btn px-2 py-0.5 rounded text-xs font-semibold text-slate-600" data-size="large">A+</button>
+                    <button onclick="setFontSize('xlarge')" class="size-btn px-2 py-0.5 rounded text-sm font-semibold text-slate-600" data-size="xlarge">A++</button>
+                </div>
+
+                <!-- Flashcard Launch Button -->
+                <button onclick="openFlashcardModal()" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold text-xs rounded-lg shadow-sm transition">
+                    <i class="fas fa-layer-group"></i> Mode Flashcard
+                </button>
+            </div>
+        </div>
+
+        <!-- SEARCH RESULTS PANEL (Overlay when searching) -->
+        <div id="searchResultsPanel" class="hidden absolute inset-x-0 top-12 bottom-0 bg-white z-30 p-6 overflow-y-auto">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex justify-between items-center mb-4 pb-2 border-b">
+                    <h3 class="font-bold text-lg text-slate-800">
+                        Hasil Pencarian: "<span id="searchQueryText" class="text-emerald-700"></span>"
+                    </h3>
+                    <button onclick="closeSearch()" class="text-slate-500 hover:text-slate-800 px-3 py-1 bg-slate-100 rounded-lg text-xs font-medium">
+                        Tutup Pencarian
+                    </button>
+                </div>
+                <div id="searchResultsContainer" class="space-y-4"></div>
+            </div>
+        </div>
+
+        <!-- READABLE CONTENT CONTAINER -->
+        <div id="contentScrollArea" class="flex-1 overflow-y-auto p-4 md:p-8 bg-sand-50 content-area">
+            <div class="max-w-4xl mx-auto space-y-8 text-readable">
+
+                <!-- SECTION: SAMPUL & BERANDA -->
+                <section id="sec-sampul" class="content-section">
+                    <div class="bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-950 text-white rounded-2xl p-6 md:p-10 shadow-xl relative overflow-hidden text-center border-4 border-amber-400/40">
+                        <!-- Decorative background elements -->
+                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-amber-400/10 rounded-full blur-2xl"></div>
+                        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-emerald-400/10 rounded-full blur-2xl"></div>
+
+                        <div class="relative z-10 max-w-2xl mx-auto">
+                            <!-- Logo emblem -->
+                            <div class="w-24 h-24 mx-auto mb-4 bg-white rounded-full p-2 shadow-2xl flex items-center justify-center">
+                                <div class="w-full h-full rounded-full border-2 border-emerald-600 flex flex-col items-center justify-center bg-emerald-50 text-emerald-900">
+                                    <i class="fas fa-globe-asia text-3xl text-emerald-700"></i>
+                                </div>
+                            </div>
+
+                            <p class="text-amber-400 font-bold tracking-widest text-xs md:text-sm uppercase mb-1">
+                                PENGGERAK PEMBINA GENERUS (PPG) DAERAH GARUT SELATAN
+                            </p>
+                            <h1 class="text-2xl md:text-4xl font-extrabold text-white tracking-tight mb-2 leading-tight">
+                                BUKU PEGANGAN CABE RAWIT
+                            </h1>
+                            <div class="inline-block bg-amber-500 text-slate-950 font-bold px-4 py-1 rounded-full text-xs md:text-sm shadow-md mb-4 uppercase tracking-wider">
+                                EDISI TERSINKRONISASI LENGKAP
+                            </div>
+                            <h2 class="text-lg md:text-2xl font-semibold text-emerald-100 mb-6">
+                                Kurikulum Pembelajaran Kelas Bawah<br>
+                                <span class="text-amber-200 text-base md:text-xl font-normal">(Tingkat PAUD & SD Kelas 1, 2, 3 — Khatam Tilawati Jilid 1-6)</span>
+                            </h2>
+
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-left mt-8 pt-6 border-t border-emerald-700/60 text-xs">
+                                <div class="bg-emerald-800/60 p-3 rounded-xl border border-emerald-700">
+                                    <div class="text-amber-300 font-bold">80 Asmaul Husna</div>
+                                    <div class="text-emerald-100 text-[11px]">Terbagi 4 Tahapan</div>
+                                </div>
+                                <div class="bg-emerald-800/60 p-3 rounded-xl border border-emerald-700">
+                                    <div class="text-amber-300 font-bold">30 Do'a Harian</div>
+                                    <div class="text-emerald-100 text-[11px]">4 Kelompok Jenjang</div>
+                                </div>
+                                <div class="bg-emerald-800/60 p-3 rounded-xl border border-emerald-700">
+                                    <div class="text-amber-300 font-bold">19 Surat Pendek</div>
+                                    <div class="text-emerald-100 text-[11px]">13 Utama + 6 Pengayaan</div>
+                                </div>
+                                <div class="bg-emerald-800/60 p-3 rounded-xl border border-emerald-700">
+                                    <div class="text-amber-300 font-bold">18 Aspek Adab</div>
+                                    <div class="text-emerald-100 text-[11px]">Tatakrama Keseharian</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ringkasan Deskripsi PDF -->
+                    <div class="mt-8 bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                        <h3 class="text-lg font-bold text-slate-900 border-b pb-2 flex items-center gap-2">
+                            <i class="fas fa-circle-info text-emerald-600"></i>
+                            Cakupan Materi Terpadu Kelas Bawah
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Buku Pegangan Cabe Rawit ini merupakan panduan kurikulum resmi tersinkronisasi lengkap dengan Garis-Garis Besar Target Pembinaan Generus PAUD hingga SD Kelas 3. Meliputi target 8 semester bacaan Tilawati (Jilid 1-6), menulis Kitabaty (Jilid 1-4 & menyalin surat pendek), hafalan Asmaul Husna, Do'a Harian, Surat Pendek, Dalil Utama, Keilmuan & Kefahaman Agama (Alim-Faqih), Akhlaqul Karimah, 18 Aspek Tatakrama Keseharian, Kemandirian, serta Olahraga & Seni (ORSEN).
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <button onclick="navigateTo('bagian-a')" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold rounded-lg shadow-sm transition flex items-center gap-2">
+                                Mulai Baca Panduan <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION A: JADWAL DAN ALOKASI WAKTU KBM -->
+                <section id="sec-bagian-a" class="content-section hidden">
+                    <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                        <div class="border-b border-slate-200 pb-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Bagian A</span>
+                            <h2 class="text-2xl font-bold text-slate-900 mt-1">Jadwal dan Pembagian Waktu KBM Terpadu (75 Menit)</h2>
+                        </div>
+
+                        <!-- 1. Jadwal KBM Mingguan -->
+                        <div class="space-y-3">
+                            <h3 class="font-bold text-base text-emerald-800 flex items-center gap-2">
+                                <i class="fas fa-calendar-week"></i> 1. Jadwal KBM Mingguan Kelas Bawah
+                            </h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+                                    <div class="font-bold text-emerald-900 text-sm flex items-center justify-between">
+                                        <span><i class="fas fa-calendar-day text-emerald-600"></i> SENIN</span>
+                                        <span class="text-[10px] bg-emerald-200 text-emerald-800 px-2 py-0.5 rounded-full font-semibold">Tilawati & Hafalan</span>
+                                    </div>
+                                    <p class="text-xs text-slate-700 mt-2">
+                                        Bacaan Tilawati, Hafalan Asmaul Husna (1-80), dan Hafalan Do'a-do'a Harian (30 Do'a).
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-blue-50 rounded-xl border border-blue-200">
+                                    <div class="font-bold text-blue-900 text-sm flex items-center justify-between">
+                                        <span><i class="fas fa-calendar-day text-blue-600"></i> SELASA</span>
+                                        <span class="text-[10px] bg-blue-200 text-blue-800 px-2 py-0.5 rounded-full font-semibold">Tilawati & Menulis</span>
+                                    </div>
+                                    <p class="text-xs text-slate-700 mt-2">
+                                        Bacaan Tilawati dan Menulis Huruf Arab (Kitabati / Kitabaty Jilid 1-4 dilanjutkan Menyalin Surat-surat Pendek).
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-amber-50 rounded-xl border border-amber-200">
+                                    <div class="font-bold text-amber-900 text-sm flex items-center justify-between">
+                                        <span><i class="fas fa-calendar-day text-amber-600"></i> KAMIS</span>
+                                        <span class="text-[10px] bg-amber-200 text-amber-800 px-2 py-0.5 rounded-full font-semibold">Surat & Dalil</span>
+                                    </div>
+                                    <p class="text-xs text-slate-700 mt-2">
+                                        Bacaan Tilawati, Hafalan Surat-surat Pendek (19 Surat), dan Hafalan Dalil (3 Tema Utama).
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-purple-50 rounded-xl border border-purple-200">
+                                    <div class="font-bold text-purple-900 text-sm flex items-center justify-between">
+                                        <span><i class="fas fa-calendar-day text-purple-600"></i> JUM'AT</span>
+                                        <span class="text-[10px] bg-purple-200 text-purple-800 px-2 py-0.5 rounded-full font-semibold">Keilmuan & Adab</span>
+                                    </div>
+                                    <p class="text-xs text-slate-700 mt-2">
+                                        Keilmuan & Kefahaman Agama, Akhlaqul Karimah, Adab/Tatakrama & Kemandirian, Praktek Ibadah, dan ORSEN (Olahraga dan Seni).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Standar Alokasi Waktu -->
+                        <div class="space-y-3 pt-4 border-t border-slate-200">
+                            <h3 class="font-bold text-base text-emerald-800 flex items-center gap-2">
+                                <i class="fas fa-stopwatch"></i> 2. Standar Alokasi Waktu Per Pertemuan
+                            </h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border-collapse border border-slate-200 rounded-xl overflow-hidden">
+                                    <thead>
+                                        <tr class="bg-emerald-800 text-white">
+                                            <th class="p-3 border border-emerald-700 w-12 text-center">No</th>
+                                            <th class="p-3 border border-emerald-700 w-24">Waktu</th>
+                                            <th class="p-3 border border-emerald-700 w-36">Materi</th>
+                                            <th class="p-3 border border-emerald-700 w-36">Teknik</th>
+                                            <th class="p-3 border border-emerald-700">Keterangan Pelaksanaan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-200 text-slate-700">
+                                        <tr class="hover:bg-slate-50">
+                                            <td class="p-3 border text-center font-bold">1</td>
+                                            <td class="p-3 border font-semibold text-emerald-700">5 menit</td>
+                                            <td class="p-3 border font-medium">Do'a pembukaan</td>
+                                            <td class="p-3 border">Klasikal</td>
+                                            <td class="p-3 border">Presensi, do'a pembukaan, dan motivasi bersama</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50">
+                                            <td class="p-3 border text-center font-bold">2</td>
+                                            <td class="p-3 border font-semibold text-emerald-700">15 menit</td>
+                                            <td class="p-3 border font-medium">Peraga Tilawati</td>
+                                            <td class="p-3 border">Klasikal (per kelompok jilid)</td>
+                                            <td class="p-3 border">Per pertemuan 4 halaman (kelompok PAUD s/d Jilid 6)</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50">
+                                            <td class="p-3 border text-center font-bold">3</td>
+                                            <td class="p-3 border font-semibold text-emerald-700">30 menit</td>
+                                            <td class="p-3 border font-medium">Buku Tilawati</td>
+                                            <td class="p-3 border">Baca Simak Individual</td>
+                                            <td class="p-3 border">Per pertemuan 1 halaman sesuai jilid masing-masing murid</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50">
+                                            <td class="p-3 border text-center font-bold">4</td>
+                                            <td class="p-3 border font-semibold text-emerald-700">20 menit</td>
+                                            <td class="p-3 border font-medium">Materi Penunjang</td>
+                                            <td class="p-3 border">Klasikal Gabungan</td>
+                                            <td class="p-3 border">Sesuai jadwal harian (hafalan / keilmuan / akhlak / adab / ibadah)</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50">
+                                            <td class="p-3 border text-center font-bold">5</td>
+                                            <td class="p-3 border font-semibold text-emerald-700">5 menit</td>
+                                            <td class="p-3 border font-medium">Do'a penutup</td>
+                                            <td class="p-3 border">Klasikal</td>
+                                            <td class="p-3 border">Memberikan penekanan materi, PR, dan do'a penutup</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION B: MATRIKS TARGET CAPAIAN PEMBELAJARAN -->
+                <section id="sec-bagian-b" class="content-section hidden">
+                    <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                        <div class="border-b border-slate-200 pb-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Bagian B</span>
+                            <h2 class="text-2xl font-bold text-slate-900 mt-1">Matriks Target Capaian Pembelajaran Kelas Bawah</h2>
+                            <p class="text-xs text-slate-500 mt-1">1 Semester = 5,5 Bulan | Total 8 Semester (PAUD s/d SD Kelas 3)</p>
+                        </div>
+
+                        <!-- Mekanisme Kelas Gabungan -->
+                        <div class="p-4 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-2">
+                            <h4 class="font-bold text-amber-950 flex items-center gap-1.5 text-sm">
+                                <i class="fas fa-layer-group"></i> Mekanisme Pembelajaran Kelas Gabungan (PAUD - SD Kelas 3):
+                            </h4>
+                            <ol class="list-decimal list-inside space-y-1 pl-1">
+                                <li><strong>Materi Berjenjang Individual (Tilawati & Menulis):</strong> Disesuaikan dengan jilid dan tingkat kemampuan masing-masing peserta didik dengan target tuntas (khatam) Tilawati Jilid 1-6 serta Kitabaty Jilid 1-4 dilanjutkan menyalin surat-surat pendek di akhir SD Kelas 3 (total 8 semester / 4 tahun).</li>
+                                <li><strong>Materi Klasikal Gabungan (Hafalan, Keilmuan, Kefahaman, Akhlak, Adab, Kemandirian & Ibadah):</strong> Disampaikan bersama-sama dan diulang bertahap sesuai jenjang kelompok tingkat.</li>
+                            </ol>
+                        </div>
+
+                        <!-- Matriks Target 9 Bidang -->
+                        <div class="space-y-4">
+                            <!-- 1. Bacaan Tilawati -->
+                            <div class="border rounded-xl p-4 bg-white shadow-sm space-y-2">
+                                <div class="flex items-center justify-between border-b pb-2">
+                                    <h4 class="font-bold text-emerald-800 text-sm flex items-center gap-2">
+                                        <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs">1</span>
+                                        Bacaan Tilawati (Individual - Target Khatam Jilid 1-6)
+                                    </h4>
+                                    <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-medium">8 Semester</span>
+                                </div>
+                                <div class="text-xs text-slate-700 space-y-2 leading-relaxed">
+                                    <p><strong>PAUD (Smt 1 & 2):</strong> Tilawati PAUD (44 hal) & pengenalan awal Jilid 1 (Peraga PAUD: 20 hal, target 12x khatam); pengenalan huruf hijaiyah & tanda baca fathah.</p>
+                                    <p><strong>SD Kelas 1 (Smt 1 & 2):</strong> Tuntas Tilawati Jilid 1 (44 hal/smt) & Jilid 2 (44 hal/smt) (Peraga Jilid 1 & 2: masing-masing 20 hal, target 12x khatam/smt); harokat fathah-dlommatain, panjang 1 alif, bentuk Ta'.</p>
+                                    <p><strong>SD Kelas 2 (Smt 1 & 2):</strong> Tuntas Tilawati Jilid 3 (44 hal/smt) & Jilid 4 (44 hal/smt) (Peraga Jilid 3 & 4: masing-masing 20 hal, target 12x khatam/smt); huruf sukun, tasydid, Idghom Bighunnah, Ikhfa', Mad Wajib & Mad Jaiz.</p>
+                                    <p><strong>SD Kelas 3 (Smt 1 & 2):</strong> Tuntas Tilawati Jilid 5 (44 hal/smt) & Jilid 6 (44 hal/smt) + Persiapan Munaqosyah (Peraga Jilid 5 & 6: masing-masing 20 hal, target 12x khatam/smt); Qolqolah, Iqlab, Idhar, Idghom Bilaghunnah, Mad Lazim, tanda Waqof, Musykilat & Ghorib.</p>
+                                    <div class="p-2 bg-emerald-50 rounded-lg text-emerald-900 text-[11px] font-medium border border-emerald-200">
+                                        <i class="fas fa-tachometer-alt"></i> <strong>Ritme Capaian per Jilid:</strong> Buku Tilawati: 1 bulan = 8-9 hal; 1 minggu = 2-3 hal | Peraga Tilawati: 1 bulan = 48 hal; 1 minggu = 12 hal.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2. Menulis Huruf Arab -->
+                            <div class="border rounded-xl p-4 bg-white shadow-sm space-y-2">
+                                <div class="flex items-center justify-between border-b pb-2">
+                                    <h4 class="font-bold text-emerald-800 text-sm flex items-center gap-2">
+                                        <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs">2</span>
+                                        Menulis Huruf Arab (Kitabati / Kitabaty Jilid 1-4 & Menyalin Surat Pendek)
+                                    </h4>
+                                    <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-medium">8 Semester</span>
+                                </div>
+                                <div class="text-xs text-slate-700 space-y-2 leading-relaxed">
+                                    <p><strong>PAUD (Smt 1 & 2):</strong> Kitabati PAUD Jilid 1 & 2 = 60 halaman (±30 hal/smt; 1 bulan = 5-6 hal; 1 minggu = 1-2 hal); menulis huruf tunggal hijaiyah & angka Arab.</p>
+                                    <p><strong>SD Kelas 1 (Smt 1 & 2):</strong> Tuntas Kitabaty Jilid 1 (44 hal/smt) & Jilid 2 (44 hal/smt); menulis huruf tunggal fathah, angka Arab, dan huruf sambung (depan, tengah, belakang).</p>
+                                    <p><strong>SD Kelas 2 (Smt 1 & 2):</strong> Tuntas Kitabaty Jilid 3 (44 hal/smt) & Jilid 4 (44 hal/smt); menulis rangkaian kata & kata Arab baku/potongan ayat.</p>
+                                    <p><strong>SD Kelas 3 (Smt 1 & 2):</strong> Dilanjutkan menyalin surat-surat pendek (target surat pendek Juz 'Amma); pemantapan keterampilan menulis mushaf, harokat lengkap, dan kaidah penulisan ayat Al-Qur'an.</p>
+                                    <div class="p-2 bg-blue-50 rounded-lg text-blue-900 text-[11px] font-medium border border-blue-200">
+                                        <i class="fas fa-pen font-normal"></i> <strong>Ritme Capaian Menulis:</strong> Kitabaty (SD Kelas 1-2): 1 semester = 44 hal | 1 bulan = 8-9 hal | 1 minggu = 2-3 hal; Menyalin Surat-surat Pendek (SD Kelas 3): bertahap sesuai urutan surat pendek.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 3. Asmaul Husna -->
+                            <div class="border rounded-xl p-4 bg-white shadow-sm space-y-2">
+                                <h4 class="font-bold text-emerald-800 text-sm flex items-center gap-2 border-b pb-2">
+                                    <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs">3</span>
+                                    Hafalan Asmaul Husna (Total 80 Asmaul Husna - Urutan 1-80)
+                                </h4>
+                                <div class="text-xs text-slate-700 space-y-1">
+                                    <p><strong>Target Ritme:</strong> 1 bulan = 3-4 Asmaul Husna; 1 minggu = 1 Asmaul Husna.</p>
+                                    <ul class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
+                                        <li class="p-2 bg-slate-50 rounded border text-[11px]"><strong>Tahap 1 (PAUD):</strong> 1-20</li>
+                                        <li class="p-2 bg-slate-50 rounded border text-[11px]"><strong>Tahap 2 (SD 1):</strong> 21-40</li>
+                                        <li class="p-2 bg-slate-50 rounded border text-[11px]"><strong>Tahap 3 (SD 2):</strong> 41-60</li>
+                                        <li class="p-2 bg-slate-50 rounded border text-[11px]"><strong>Tahap 4 (SD 3):</strong> 61-80</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- 4-9 Quick Cards -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="border rounded-xl p-4 bg-white shadow-sm space-y-1 text-xs">
+                                    <h5 class="font-bold text-emerald-800 flex items-center gap-2 border-b pb-1">
+                                        <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-[10px]">4</span>
+                                        Hafalan Do'a Harian (Total 30 Do'a)
+                                    </h5>
+                                    <p class="text-slate-600"><strong>Kelompok A (PAUD):</strong> 9 Doa dasar</p>
+                                    <p class="text-slate-600"><strong>Kelompok B (SD 1):</strong> 11 Doa harian</p>
+                                    <p class="text-slate-600"><strong>Kelompok C (SD 2):</strong> 7 Doa khusus</p>
+                                    <p class="text-slate-600"><strong>Kelompok D (SD 3):</strong> 11 Doa pelindung/situasional</p>
+                                </div>
+
+                                <div class="border rounded-xl p-4 bg-white shadow-sm space-y-1 text-xs">
+                                    <h5 class="font-bold text-emerald-800 flex items-center gap-2 border-b pb-1">
+                                        <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-[10px]">5</span>
+                                        Hafalan Surat Pendek (19 Surat)
+                                    </h5>
+                                    <p class="text-slate-600"><strong>Target Utama (13 Surat):</strong> Al-Fatihah s/d Al-Ashr</p>
+                                    <p class="text-slate-600"><strong>Target Pengayaan SD 2-3 (6 Surat):</strong> At-Takatsur, Al-Qori'ah, Al-'Adiyat, Az-Zalzalah, Al-Bayyinah, Al-Qodr.</p>
+                                </div>
+
+                                <div class="border rounded-xl p-4 bg-white shadow-sm space-y-1 text-xs">
+                                    <h5 class="font-bold text-emerald-800 flex items-center gap-2 border-b pb-1">
+                                        <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-[10px]">6</span>
+                                        Hafalan Dalil (3 Tema - 6 Dalil)
+                                    </h5>
+                                    <p class="text-slate-600">1. Dalil Mengaji (2 Dalil: HR. Ibnu Majah & HR. Abu Dawud)</p>
+                                    <p class="text-slate-600">2. Dalil Mengamal (2 Dalil: QS. Az-Zukhruf & QS. Fushshilat)</p>
+                                    <p class="text-slate-600">3. Dalil Membela (2 Dalil: QS. At-Taubah & HR. Muslim)</p>
+                                </div>
+
+                                <div class="border rounded-xl p-4 bg-white shadow-sm space-y-1 text-xs">
+                                    <h5 class="font-bold text-emerald-800 flex items-center gap-2 border-b pb-1">
+                                        <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-[10px]">7</span>
+                                        Keilmuan, Kefahaman & Akhlak
+                                    </h5>
+                                    <p class="text-slate-600">Alim-Faqih: Aqidah, Surga Neraka, 6 Alam, Thoharoh, Sholat, QHJ, Lima Bab, Empat Tali Keimanan, Tri Sukses, Enam Thobiat Luhur.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION C.1: HAFALAN ASMAUL HUSNA (1 - 80) -->
+                <section id="sec-asmaul-husna" class="content-section hidden">
+                    <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-200 pb-4 gap-4">
+                            <div>
+                                <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Silabus C.1</span>
+                                <h2 class="text-2xl font-bold text-slate-900 mt-0.5">Hafalan Asmaul Husna (Urutan 1 – 80 Lengkap)</h2>
+                                <p class="text-xs text-slate-500 mt-1">Gunakan checklist di setiap item untuk mencatat hafalan santri.</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="openFlashcardCategory('asmaul')" class="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold text-xs rounded-lg shadow-sm">
+                                    <i class="fas fa-layer-group"></i> Flashcard Asmaul Husna
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar khusus Asmaul Husna -->
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <div class="flex justify-between text-xs font-bold mb-1.5">
+                                <span class="text-slate-700">Kemajuan Hafalan Asmaul Husna</span>
+                                <span id="asmaulProgressCount" class="text-emerald-700">0 / 80 Terhafalkan</span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                                <div id="asmaulProgressBar" class="bg-amber-500 h-full w-0 transition-all duration-300"></div>
+                            </div>
+                        </div>
+
+                        <!-- 4 Tahapan Accordion/Grid -->
+                        <div id="asmaulContainer" class="space-y-6">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION C.2: KUMPULAN HAFALAN DO'A HARIAN TERPADU (30 DO'A) -->
+                <section id="sec-doa-harian" class="content-section hidden">
+                    <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-200 pb-4 gap-4">
+                            <div>
+                                <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Silabus C.2</span>
+                                <h2 class="text-2xl font-bold text-slate-900 mt-0.5">Kumpulan Hafalan Do'a Harian Terpadu (30 Do'a)</h2>
+                                <p class="text-xs text-slate-500 mt-1">Lengkap dengan Teks Arab berharakat, Transliterasi Latin, & Riwayat.</p>
+                            </div>
+                            <button onclick="openFlashcardCategory('doa')" class="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold text-xs rounded-lg shadow-sm">
+                                <i class="fas fa-layer-group"></i> Flashcard Do'a Harian
+                            </button>
+                        </div>
+
+                        <!-- Progress Bar Doa -->
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <div class="flex justify-between text-xs font-bold mb-1.5">
+                                <span class="text-slate-700">Kemajuan Hafalan Do'a Harian</span>
+                                <span id="doaProgressCount" class="text-emerald-700">0 / 30 Terhafalkan</span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                                <div id="doaProgressBar" class="bg-emerald-600 h-full w-0 transition-all duration-300"></div>
+                            </div>
+                        </div>
+
+                        <div id="doaContainer" class="space-y-4">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION C.3: HAFALAN SURAT PENDEK (19 SURAT) -->
+                <section id="sec-surat-pendek" class="content-section hidden">
+                    <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                        <div class="border-b border-slate-200 pb-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Silabus C.3</span>
+                            <h2 class="text-2xl font-bold text-slate-900 mt-0.5">Hafalan Surat Pendek (19 Surat)</h2>
+                            <p class="text-xs text-slate-500 mt-1">13 Target Utama Khatam Tilawati + 6 Surat Pengayaan Kelas 2-3</p>
+                        </div>
+
+                        <!-- Progress Bar Surat -->
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <div class="flex justify-between text-xs font-bold mb-1.5">
+                                <span class="text-slate-700">Kemajuan Hafalan Surat Pendek</span>
+                                <span id="suratProgressCount" class="text-emerald-700">0 / 19 Terhafalkan</span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                                <div id="suratProgressBar" class="bg-emerald-600 h-full w-0 transition-all duration-300"></div>
+                            </div>
+                        </div>
+
+                        <div id="suratContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION C.4: HAFALAN DALIL (3 TEMA UTAMA) -->
+                <section id="sec-dalil-utama" class="content-section hidden">
+                    <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-200 pb-4 gap-4">
+                            <div>
+                                <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Silabus C.4</span>
+                                <h2 class="text-2xl font-bold text-slate-900 mt-0.5">Hafalan Dalil (3 Tema Utama - 6 Dalil)</h2>
+                                <p class="text-xs text-slate-500 mt-1">Dalil Mengaji, Dalil Mengamal, dan Dalil Membela (Al-Qur'an & Hadits)</p>
+                            </div>
+                            <button onclick="openFlashcardCategory('dalil')" class="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold text-xs rounded-lg shadow-sm">
+                                <i class="fas fa-layer-group"></i> Flashcard Dalil
+                            </button>
+                        </div>
+
+                        <div id="dalilContainer" class="space-y-6">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION C.5: MATERI KEILMUAN, KEFAHAMAN AGAMA & PRAKTEK IBADAH -->
+                <section id="sec-keilmuan-ibadah" class="content-section hidden">
+                    <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                        <div class="border-b border-slate-200 pb-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Silabus C.5</span>
+                            <h2 class="text-2xl font-bold text-slate-900 mt-0.5">Keilmuan, Kefahaman Agama & Praktek Ibadah Terpadu</h2>
+                        </div>
+
+                        <!-- Tata Cara Dasar -->
+                        <div class="space-y-4">
+                            <!-- Berjabat tangan -->
+                            <div class="p-5 bg-emerald-50/70 border border-emerald-200 rounded-xl space-y-3">
+                                <h3 class="font-bold text-emerald-900 text-sm flex items-center gap-2">
+                                    <i class="fas fa-handshake text-emerald-700"></i> Tata Cara Berjabat Tangan
+                                </h3>
+                                <ul class="text-xs text-slate-700 space-y-1.5 list-disc list-inside">
+                                    <li>Dengan sesama mahrom (laki-laki dengan laki-laki, perempuan dengan perempuan).</li>
+                                    <li>Menyesuaikan keadaan (teman, orang tua, guru/mubaligh/pengurus).</li>
+                                    <li>Mencium tangan bila dengan orang tua atau yang lebih tua.</li>
+                                    <li>Mengucapkan lafadz: <span class="font-arabic text-base text-emerald-800 font-bold px-1" dir="rtl">الْحَمْدُ لِلَّهِ أَسْتَغْفِرُ اللَّهَ</span> ("Alhamdulillah Astaghfirullah").</li>
+                                    <li>Memandang wajah yang diajak berjabat tangan.</li>
+                                    <li>Tidak melepaskan tangan lebih dulu sebelum dilepaskan.</li>
+                                    <li>Tidak berjabat tangan untuk bergurau (guyonan).</li>
+                                </ul>
+                            </div>
+
+                            <!-- Uluk salam -->
+                            <div class="p-5 bg-blue-50/70 border border-blue-200 rounded-xl space-y-3">
+                                <h3 class="font-bold text-blue-900 text-sm flex items-center gap-2">
+                                    <i class="fas fa-comment-dots text-blue-700"></i> Tata Cara Uluk Salam
+                                </h3>
+                                <div class="text-xs text-slate-700 space-y-2">
+                                    <p>Membaca salam: <span class="font-arabic text-lg text-blue-900 font-bold block my-1" dir="rtl">اَلسَّلَامُ عَلَيْكُمْ، وَرَحْمَةُ اللَّهِ، وَبَرَكَاتُهُ، وَمَغْفِرَتُهُ</span></p>
+                                    <p>Dan menjawab: <span class="font-arabic text-lg text-blue-900 font-bold block my-1" dir="rtl">وَعَلَيْكُمُ السَّلَامُ، وَرَحْمَةُ اللَّهِ، وَبَرَكَاتُهُ، وَمَغْفِرَتُهُ</span></p>
+                                    <p class="text-slate-600 italic">Membiasakan salam, berjabat tangan, dan membaca do'a "Alhamdulillah Astaghfirullah" bila bertemu sesama orang iman.</p>
+                                </div>
+                            </div>
+
+                            <!-- Mengucapkan Syukur -->
+                            <div class="p-5 bg-amber-50/70 border border-amber-200 rounded-xl space-y-3">
+                                <h3 class="font-bold text-amber-950 text-sm flex items-center gap-2">
+                                    <i class="fas fa-hands text-amber-700"></i> Tata Cara Mengucapkan Syukur
+                                </h3>
+                                <div class="text-xs text-slate-700 space-y-2">
+                                    <p>• Bersyukur kepada Allah: <span class="font-arabic text-base text-amber-900 font-bold" dir="rtl">اَلْحَمْدُ لِلَّهِ / الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</span></p>
+                                    <p>• Kepada orang laki-laki: <span class="font-arabic text-base text-amber-900 font-bold" dir="rtl">اَلْحَمْدُ لِلَّهِ جَزَاكَ اللَّهُ خَيْرًا</span></p>
+                                    <p>• Kepada orang perempuan: <span class="font-arabic text-base text-amber-900 font-bold" dir="rtl">اَلْحَمْدُ لِلَّهِ جَزَاكِ اللَّهُ خَيْرًا</span></p>
+                                    <p>• Kepada orang banyak hadir: <span class="font-arabic text-base text-amber-900 font-bold" dir="rtl">اَلْحَمْدُ لِلَّهِ جَزَاكُمُ اللَّهُ خَيْرًا</span></p>
+                                    <p>• Kepada orang banyak ghoib/tidak hadir: <span class="font-arabic text-base text-amber-900 font-bold" dir="rtl">الْحَمْدُ لِلَّهِ جَزَاهُمُ اللَّهُ خَيْرًا</span></p>
+                                    <p class="text-slate-600 italic mt-1 border-t border-amber-200/60 pt-1">Dibedakan dengan ucapan terima kasih biasa karena kalimat syukur termasuk do'a.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pokok Keilmuan & Kefahaman Agama -->
+                        <div class="pt-4 border-t border-slate-200 space-y-3">
+                            <h3 class="font-bold text-base text-slate-900">Pokok Keilmuan & Kefahaman Agama (Alim-Faqih)</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                                <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+                                    <h4 class="font-bold text-emerald-800 border-b pb-1">1. Aqidah & Surga Neraka</h4>
+                                    <p class="text-slate-600">Ke-Esa-an Allah; Rukun Iman, Rukun Islam & Ihsan; amal sholih berpahala masuk surga & amal jelek berdosa masuk neraka; <strong>6 Alam Kehidupan Manusia</strong> (alam ruh, alam rahim, alam dunia, alam kubur, alam qiyamat, dan alam akhirat); tujuan & kemurnian ibadah.</p>
+                                </div>
+                                <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+                                    <h4 class="font-bold text-emerald-800 border-b pb-1">2. Hukum & Ibadah</h4>
+                                    <p class="text-slate-600">Pengertian Qur'an Hadits Jamaah; wajibnya taat & haramnya maksiat; hukum halal-haram; thoharoh (suci-najis & istinja'); sholat fardhu & sholat sunah rowatib; puasa Romadlon (kefadlolan, hal yang diperbolehkan & membatalkan puasa); serta batas-batas mahrom.</p>
+                                </div>
+                                <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+                                    <h4 class="font-bold text-emerald-800 border-b pb-1">3. Faham Jamaah</h4>
+                                    <p class="text-slate-600">Lima Bab, Empat Tali Keimanan, Tri Sukses Generasi Penerus, Enam Thobiat Luhur Jamaah, serta pengertian dan wajibnya berjamaah.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION C.6: AKHLAQUL KARIMAH (AKHLAK & 18 ADAB) -->
+                <section id="sec-akhlaq-adab" class="content-section hidden">
+                    <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                        <div class="border-b border-slate-200 pb-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Silabus C.6</span>
+                            <h2 class="text-2xl font-bold text-slate-900 mt-0.5">Akhlaqul Karimah & 18 Aspek Tatakrama Keseharian</h2>
+                        </div>
+
+                        <!-- Bagian A: Akhlaq -->
+                        <div class="space-y-4">
+                            <h3 class="font-bold text-lg text-emerald-800 border-b border-emerald-100 pb-2">A. Akhlaqul Karimah</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                                <div class="p-4 bg-emerald-50/60 rounded-xl border border-emerald-200 space-y-2">
+                                    <h4 class="font-bold text-emerald-900">1. Akhlaq Pribadi</h4>
+                                    <p><strong>a.</strong> Tertanam sifat jujur, amanah, mujhid-muzhid (Enam Thobiat Luhur).</p>
+                                    <p><strong>b. Sifat Baik:</strong> Bersyukur, ta'dhim, ta'at, sabar, dermawan/berbagi, pemaaf, kasih sayang, semangat, tawadu'/rendah hati, husnudhon, ramah-tamah, sopan-santun, disiplin, tertib, bersih dan rapih.</p>
+                                    <p><strong>c. Hindari Akhlak Tercela:</strong> Amarah, dendam, iri hati, bohong, kikir/pelit, serakah/rakus, menghina, mencela, meremehkan, bertengkar, menganiaya, mencuri, menggasap, merusak, jahil/usil, mengumpat/misuh, membully.</p>
+                                </div>
+                                <div class="p-4 bg-emerald-50/60 rounded-xl border border-emerald-200 space-y-2">
+                                    <h4 class="font-bold text-emerald-900">2. Akhlaq Keluarga</h4>
+                                    <p><strong>a. Berbuat baik kepada orangtua:</strong> Ta'at, ta'dhim, bersyukur, tawadu'/rendah hati, perhatian/gemati.</p>
+                                    <p><strong>b. Berbuat baik kepada saudara & kerabat:</strong> Hormat terhadap yang lebih tua, sayang terhadap yang lebih muda, pemaaf, perhatian/gemati.</p>
+                                </div>
+                                <div class="p-4 bg-emerald-50/60 rounded-xl border border-emerald-200 space-y-2">
+                                    <h4 class="font-bold text-emerald-900">3. Ulil Amri & Guru</h4>
+                                    <p>Tertanam kewajiban berbuat baik kepada Ulil Amri, guru dan muballigh-muballighot: Bersyukur, ta'dhim/hormat, ta'at, tawadu'/rendah hati, husnudhon.</p>
+                                </div>
+                                <div class="p-4 bg-emerald-50/60 rounded-xl border border-emerald-200 space-y-2">
+                                    <h4 class="font-bold text-emerald-900">4. Masyarakat & Lingkungan</h4>
+                                    <p><strong>a. Teman:</strong> Rukun, kompak, kerjasama baik, dermawan, tawadu', pemaaf, kasih sayang, husnudhon.</p>
+                                    <p><strong>b. Tetangga:</strong> Rukun, hormat, berbagi, pemaaf, senang, sabar, kasih sayang.</p>
+                                    <p><strong>c. Tamu:</strong> Hormat, memulyakan, tawadu', dermawan.</p>
+                                    <p><strong>d. Lingkungan:</strong> Tertanam cinta alam sekitar.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bagian B: 18 Adab / Tatakrama Keseharian (Lengkap Tanpa Terpotong) -->
+                        <div class="pt-6 border-t border-slate-200 space-y-4">
+                            <h3 class="font-bold text-lg text-emerald-800 border-b border-emerald-100 pb-2">B. 18 Aspek Adab / Tatakrama Keseharian</h3>
+                            <div id="adabContainer" class="space-y-4 text-xs">
+                                <!-- Rendered dynamically via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION C.7: KEMANDIRIAN & CATATAN PELAKSANAAN -->
+                <section id="sec-kemandirian" class="content-section hidden">
+                    <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                        <div class="border-b border-slate-200 pb-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Silabus C.7</span>
+                            <h2 class="text-2xl font-bold text-slate-900 mt-0.5">Pembiasaan Kemandirian & Catatan Pelaksanaan</h2>
+                        </div>
+
+                        <!-- 3 Aspek Kemandirian -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                            <div class="p-5 bg-amber-50/60 rounded-xl border border-amber-200 space-y-2">
+                                <h3 class="font-bold text-amber-950 border-b border-amber-200 pb-1.5 flex items-center gap-1.5">
+                                    <i class="fas fa-user text-amber-700"></i> A. Kemandirian Pribadi
+                                </h3>
+                                <ol class="list-decimal list-inside space-y-1 text-slate-700">
+                                    <li>Makan-minum secara mandiri</li>
+                                    <li>Mandi secara mandiri</li>
+                                    <li>Buang air (kencing & berak) secara mandiri</li>
+                                    <li>Memakai pakaian dengan benar</li>
+                                    <li>Menempatkan pakaian bersih & kotor pada tempatnya</li>
+                                    <li>Menyiapkan peralatan sekolah & mengaji secara mandiri</li>
+                                    <li>Berlatih mengatur waktu ibadah, mengaji, belajar, bermain & istirahat</li>
+                                    <li>Mencuci peralatan makannya sendiri (piring, sendok, gelas, dll)</li>
+                                    <li>Melipat dan menata pakaian dalam almari</li>
+                                </ol>
+                            </div>
+
+                            <div class="p-5 bg-amber-50/60 rounded-xl border border-amber-200 space-y-2">
+                                <h3 class="font-bold text-amber-950 border-b border-amber-200 pb-1.5 flex items-center gap-1.5">
+                                    <i class="fas fa-house-user text-amber-700"></i> B. Dalam Keluarga
+                                </h3>
+                                <ol class="list-decimal list-inside space-y-1 text-slate-700">
+                                    <li>Meletakkan peralatan makan habis dipakai di tempatnya</li>
+                                    <li>Meletakkan pakaian kotor di tempatnya</li>
+                                    <li>Membuang sampah pada tempatnya</li>
+                                    <li>Merapikan tempat tidur</li>
+                                    <li>Menata buku/kitab, peralatan belajar & tempat belajar</li>
+                                    <li>Menyapu lantai rumah</li>
+                                </ol>
+                            </div>
+
+                            <div class="p-5 bg-amber-50/60 rounded-xl border border-amber-200 space-y-2">
+                                <h3 class="font-bold text-amber-950 border-b border-amber-200 pb-1.5 flex items-center gap-1.5">
+                                    <i class="fas fa-users-rectangle text-amber-700"></i> C. Jamaah & Sekolah
+                                </h3>
+                                <ol class="list-decimal list-inside space-y-1 text-slate-700">
+                                    <li>Menata & merapikan perlengkapan pengajian & sekolah</li>
+                                    <li>Tidak ditunggui orangtua ketika di pengajian dan sekolah</li>
+                                    <li>Tanggap terhadap isrof & mubadzir (memadamkan lampu, mematikan kipas/AC, menutup kran air jika tidak digunakan)</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- Catatan Pelaksanaan -->
+                        <div class="p-5 bg-emerald-900 text-emerald-100 rounded-xl space-y-2 text-xs border border-emerald-800">
+                            <h4 class="font-bold text-amber-300 text-sm flex items-center gap-2">
+                                <i class="fas fa-clipboard-check"></i> Catatan Pelaksanaan Kelas Bawah:
+                            </h4>
+                            <p class="leading-relaxed">
+                                Materi Keilmuan & Kefahaman Agama, Akhlaqul Karimah, Adab/Tatakrama Keseharian (18 aspek), Pembiasaan Kemandirian, serta Praktek Ibadah (wudhu, adab buang air & mensucikan najis, sholat fardhu 12 tahapan, dzikir setelah sholat, sholat rowatib, dan menjaga pergaulan dengan bukan mahrom) disampaikan secara bertahap pada sesi Klasikal Gabungan hari Jum'at menggunakan buku panduan praktek ibadah & pegangan guru PPG Daerah Garut Selatan.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NAVIGATION FOOTER BUTTONS (PREV / NEXT CHAPTER) -->
+                <div class="flex items-center justify-between pt-6 border-t border-slate-200 no-print">
+                    <button id="btnPrevChapter" onclick="navigateChapter(-1)" class="px-4 py-2 bg-white border border-slate-300 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 transition flex items-center gap-2">
+                        <i class="fas fa-chevron-left"></i> Bab Sebelumnya
+                    </button>
+                    <span id="chapterIndicator" class="text-xs text-slate-500 font-medium">1 / 8</span>
+                    <button id="btnNextChapter" onclick="navigateChapter(1)" class="px-4 py-2 bg-emerald-700 text-white rounded-xl text-xs font-semibold hover:bg-emerald-800 transition flex items-center gap-2">
+                        Bab Selanjutnya <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FLASHCARD MODAL (INTERACTIVE HAFALAN MODE) -->
+    <div id="flashcardModal" class="hidden fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+            <!-- Header Modal -->
+            <div class="p-4 bg-emerald-800 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-layer-group text-amber-400"></i>
+                    <h3 class="font-bold text-sm" id="fcCategoryTitle">Mode Kartu Hafalan (Flashcard)</h3>
+                </div>
+                <button onclick="closeFlashcardModal()" class="text-emerald-200 hover:text-white">
+                    <i class="fas fa-times text-base"></i>
+                </button>
+            </div>
+
+            <!-- Controls Filter Mode -->
+            <div class="p-3 bg-slate-100 border-b flex justify-between items-center text-xs">
+                <span id="fcCounter" class="font-semibold text-slate-600">Kartu 1 / 80</span>
+                <div class="flex gap-2">
+                    <button onclick="shuffleFlashcards()" class="px-2.5 py-1 bg-white border rounded text-slate-700 hover:bg-slate-50 font-medium">
+                        <i class="fas fa-shuffle"></i> Acak
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col items-center justify-center text-center space-y-4 min-h-[260px] relative bg-sand-50 cursor-pointer select-none" onclick="flipCard()">
+                <div id="fcBadge" class="absolute top-4 left-4 bg-amber-100 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    Tahap 1
+                </div>
+
+                <div class="w-full space-y-4">
+                    <div id="fcFront" class="space-y-3">
+                        <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider block" id="fcFrontLabel">Nomor / Judul</span>
+                        <h4 id="fcTitle" class="text-xl font-bold text-slate-800">1. Yaa Allohulladzii...</h4>
+                    </div>
+
+                    <div id="fcBack" class="hidden space-y-3 pt-3 border-t border-slate-200">
+                        <div id="fcArabic" class="font-arabic text-3xl text-emerald-900 font-bold leading-relaxed" dir="rtl">
+                            يا الله
+                        </div>
+                        <p id="fcLatin" class="text-sm font-semibold text-slate-700 italic">
+                            "Yaa Allohulladzii laa ilaaha illaa anta"
+                        </p>
+                        <p id="fcMeaning" class="text-xs text-slate-500">
+                            -
+                        </p>
+                    </div>
+                </div>
+
+                <span class="text-[10px] text-slate-400 italic mt-4 block">
+                    <i class="fas fa-rotate"></i> Klik kartu untuk melihat/menyembunyikan teks & latin
+                </span>
+            </div>
+
+            <!-- Modal Footer Navigation -->
+            <div class="p-4 bg-slate-50 border-t flex justify-between items-center">
+                <button onclick="prevFlashcard()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold rounded-xl flex items-center gap-1.5">
+                    <i class="fas fa-arrow-left"></i> Sebelumnya
+                </button>
+                <button onclick="toggleFcStatus()" id="btnFcCheck" class="px-3 py-2 bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-xs font-bold rounded-xl flex items-center gap-1.5">
+                    <i class="fas fa-check-circle"></i> Mark Hafal
+                </button>
+                <button onclick="nextFlashcard()" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl flex items-center gap-1.5">
+                    Selanjutnya <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATA & APPLICATION SCRIPTS -->
+    <script>
+        // DATA SETS COMPREHENSIVELY EXTRACTED FROM PDF
+        const sections = [
+            'sampul', 'bagian-a', 'bagian-b', 'asmaul-husna', 
+            'doa-harian', 'surat-pendek', 'dalil-utama', 
+            'keilmuan-ibadah', 'akhlaq-adab', 'kemandirian'
+        ];
+
+        // 80 ASMAUL HUSNA LENGKAP FROM PDF
+        const asmaulData = [
+            { id: 1, arab: "يَا اللَّهُ الَّذِي لَا إِلَهَ إِلَّا أَنْتَ", latin: "1. Yaa Allohulladzii laa ilaaha illaa anta", stage: 1, grade: "paud" },
+            { id: 2, arab: "يَا رَحْمَنُ", latin: "2. Yaa Rohmaanu", stage: 1, grade: "paud" },
+            { id: 3, arab: "يَا رَحِيمُ", latin: "3. Yaa Rohiimu", stage: 1, grade: "paud" },
+            { id: 4, arab: "يَا مَلِكُ", latin: "4. Yaa Maliku", stage: 1, grade: "paud" },
+            { id: 5, arab: "يَا قُدُّوسُ", latin: "5. Yaa Qudduusu", stage: 1, grade: "paud" },
+            { id: 6, arab: "يَا سَلَامُ", latin: "6. Yaa Salaamu", stage: 1, grade: "paud" },
+            { id: 7, arab: "يَا مُؤْمِنُ", latin: "7. Yaa Mu'minu", stage: 1, grade: "paud" },
+            { id: 8, arab: "يَا مُهَيْمِنُ", latin: "8. Yaa Muhaiminu", stage: 1, grade: "paud" },
+            { id: 9, arab: "يَا عَزِيزُ", latin: "9. Yaa 'Aziizu", stage: 1, grade: "paud" },
+            { id: 10, arab: "يَا جَبَّارُ", latin: "10. Yaa Jabbaaru", stage: 1, grade: "paud" },
+            { id: 11, arab: "يَا مُتَكَبِّرُ", latin: "11. Yaa Mutakabbiru", stage: 1, grade: "paud" },
+            { id: 12, arab: "يَا خَالِقُ", latin: "12. Yaa Khooliqu", stage: 1, grade: "paud" },
+            { id: 13, arab: "يَا بَارِئُ", latin: "13. Yaa Baari'u", stage: 1, grade: "paud" },
+            { id: 14, arab: "يَا مُصَوِّرُ", latin: "14. Yaa Mushowwiru", stage: 1, grade: "paud" },
+            { id: 15, arab: "يَا غَفَّارُ", latin: "15. Yaa Ghoffaaru", stage: 1, grade: "paud" },
+            { id: 16, arab: "يَا قَهَّارُ", latin: "16. Yaa Qohhaaru", stage: 1, grade: "paud" },
+            { id: 17, arab: "يَا وَهَّابُ", latin: "17. Yaa Wahhaabu", stage: 1, grade: "paud" },
+            { id: 18, arab: "يَا رَزَّاقُ", latin: "18. Yaa Rozzaaqu", stage: 1, grade: "paud" },
+            { id: 19, arab: "يَا فَتَّاحُ", latin: "19. Yaa Fattaahu", stage: 1, grade: "paud" },
+            { id: 20, arab: "يَا عَلِيمُ", latin: "20. Yaa 'Aliimu", stage: 1, grade: "paud" },
+            { id: 21, arab: "يَا قَابِضُ", latin: "21. Yaa Qoobidhu", stage: 2, grade: "sd1" },
+            { id: 22, arab: "يَا بَاسِطُ", latin: "22. Yaa Baasithu", stage: 2, grade: "sd1" },
+            { id: 23, arab: "يَا خَافِضُ", latin: "23. Yaa Khoofidhu", stage: 2, grade: "sd1" },
+            { id: 24, arab: "يَا رَافِعُ", latin: "24. Yaa Roofi'u", stage: 2, grade: "sd1" },
+            { id: 25, arab: "يَا مُعِزُّ", latin: "25. Yaa Mu'izzu", stage: 2, grade: "sd1" },
+            { id: 26, arab: "يَا مُذِلُّ", latin: "26. Yaa Mudzillu", stage: 2, grade: "sd1" },
+            { id: 27, arab: "يَا سَمِيعُ", latin: "27. Yaa Samii'u", stage: 2, grade: "sd1" },
+            { id: 28, arab: "يَا بَصِيرُ", latin: "28. Yaa Bashiiru", stage: 2, grade: "sd1" },
+            { id: 29, arab: "يَا حَكَمُ", latin: "29. Yaa Hakamu", stage: 2, grade: "sd1" },
+            { id: 30, arab: "يَا عَدْلُ", latin: "30. Yaa 'Adlu", stage: 2, grade: "sd1" },
+            { id: 31, arab: "يَا لَطِيفُ", latin: "31. Yaa Lathiifu", stage: 2, grade: "sd1" },
+            { id: 32, arab: "يَا خَبِيرُ", latin: "32. Yaa Khobiiru", stage: 2, grade: "sd1" },
+            { id: 33, arab: "يَا حَلِيمُ", latin: "33. Yaa Haliimu", stage: 2, grade: "sd1" },
+            { id: 34, arab: "يَا عَظِيمُ", latin: "34. Yaa 'Azhiimu", stage: 2, grade: "sd1" },
+            { id: 35, arab: "يَا غَفُورُ", latin: "35. Yaa Ghofuuru", stage: 2, grade: "sd1" },
+            { id: 36, arab: "يَا شَكُورُ", latin: "36. Yaa Syakuuru", stage: 2, grade: "sd1" },
+            { id: 37, arab: "يَا عَلِيُّ", latin: "37. Yaa 'Aliyyu", stage: 2, grade: "sd1" },
+            { id: 38, arab: "يَا كَبِيرُ", latin: "38. Yaa Kabiiru", stage: 2, grade: "sd1" },
+            { id: 39, arab: "يَا حَفِيظُ", latin: "39. Yaa Hafiizhu", stage: 2, grade: "sd1" },
+            { id: 40, arab: "يَا مُقِيتُ", latin: "40. Yaa Muqiitu", stage: 2, grade: "sd1" },
+            { id: 41, arab: "يَا حَسِيبُ", latin: "41. Yaa Hasiibu", stage: 3, grade: "sd2" },
+            { id: 42, arab: "يَا جَلِيلُ", latin: "42. Yaa Jaliilu", stage: 3, grade: "sd2" },
+            { id: 43, arab: "يَا كَرِيمُ", latin: "43. Yaa Kariimu", stage: 3, grade: "sd2" },
+            { id: 44, arab: "يَا رَقِيبُ", latin: "44. Yaa Roqiibu", stage: 3, grade: "sd2" },
+            { id: 45, arab: "يَا مُجِيبُ", latin: "45. Yaa Mujiibu", stage: 3, grade: "sd2" },
+            { id: 46, arab: "يَا وَاسِعُ", latin: "46. Yaa Waasi'u", stage: 3, grade: "sd2" },
+            { id: 47, arab: "يَا حَكِيمُ", latin: "47. Yaa Hakiimu", stage: 3, grade: "sd2" },
+            { id: 48, arab: "يَا وَدُودُ", latin: "48. Yaa Waduudu", stage: 3, grade: "sd2" },
+            { id: 49, arab: "يَا مَجِيدُ", latin: "49. Yaa Majiidu", stage: 3, grade: "sd2" },
+            { id: 50, arab: "يَا بَاعِثُ", latin: "50. Yaa Baa'itsu", stage: 3, grade: "sd2" },
+            { id: 51, arab: "يَا شَهِيْدُ", latin: "51. Yaa Syahiidu", stage: 3, grade: "sd2" },
+            { id: 52, arab: "يَا حَقُّ", latin: "52. Yaa Haqqu", stage: 3, grade: "sd2" },
+            { id: 53, arab: "يَا وَكِيلُ", latin: "53. Yaa Wakiilu", stage: 3, grade: "sd2" },
+            { id: 54, arab: "يَا قَوِيُّ", latin: "54. Yaa Qowiyyu", stage: 3, grade: "sd2" },
+            { id: 55, arab: "يَا مَتِينُ", latin: "55. Yaa Matiinu", stage: 3, grade: "sd2" },
+            { id: 56, arab: "يَا وَلِيُّ", latin: "56. Yaa Waliyyu", stage: 3, grade: "sd2" },
+            { id: 57, arab: "يَا حَمِيدُ", latin: "57. Yaa Hamiidu", stage: 3, grade: "sd2" },
+            { id: 58, arab: "يَا مُحْصِي", latin: "58. Yaa Muhshii", stage: 3, grade: "sd2" },
+            { id: 59, arab: "يَا مُبْدِئُ", latin: "59. Yaa Mubdi'u", stage: 3, grade: "sd2" },
+            { id: 60, arab: "يَا مُعِيدُ", latin: "60. Yaa Mu'iidu", stage: 3, grade: "sd2" },
+            { id: 61, arab: "يَا مُحْيِي", latin: "61. Yaa Muhyii", stage: 4, grade: "sd3" },
+            { id: 62, arab: "يَا مُمِيتُ", latin: "62. Yaa Mumiitu", stage: 4, grade: "sd3" },
+            { id: 63, arab: "يَا حَيُّ", latin: "63. Yaa Hayyu", stage: 4, grade: "sd3" },
+            { id: 64, arab: "يَا قَيُّومُ", latin: "64. Yaa Qoyyuumu", stage: 4, grade: "sd3" },
+            { id: 65, arab: "يَا وَاجِدُ", latin: "65. Yaa Waajidu", stage: 4, grade: "sd3" },
+            { id: 66, arab: "يَا مَاجِدُ", latin: "66. Yaa Maajidu", stage: 4, grade: "sd3" },
+            { id: 67, arab: "يَا وَاحِدُ", latin: "67. Yaa Waahidu", stage: 4, grade: "sd3" },
+            { id: 68, arab: "يَا صَمَدُ", latin: "68. Yaa Shomadu", stage: 4, grade: "sd3" },
+            { id: 69, arab: "يَا قَادِرُ", latin: "69. Yaa Qoodiru", stage: 4, grade: "sd3" },
+            { id: 70, arab: "يَا مُقْتَدِرُ", latin: "70. Yaa Muqtadiru", stage: 4, grade: "sd3" },
+            { id: 71, arab: "يَا مُقَدِّمُ", latin: "71. Yaa Muqoddimu", stage: 4, grade: "sd3" },
+            { id: 72, arab: "يَا مُؤَخِّرُ", latin: "72. Yaa Mu-akhkhiru", stage: 4, grade: "sd3" },
+            { id: 73, arab: "يَا أَوَّلُ", latin: "73. Yaa Awwalu", stage: 4, grade: "sd3" },
+            { id: 74, arab: "يَا آخِرُ", latin: "74. Yaa Aakhiru", stage: 4, grade: "sd3" },
+            { id: 75, arab: "يَا ظَاهِرُ", latin: "75. Yaa Zhoohiru", stage: 4, grade: "sd3" },
+            { id: 76, arab: "يَا بَاطِنُ", latin: "76. Yaa Baathinu", stage: 4, grade: "sd3" },
+            { id: 77, arab: "يَا وَالِي", latin: "77. Yaa Waalii", stage: 4, grade: "sd3" },
+            { id: 78, arab: "يَا مُتَعَالِي", latin: "78. Yaa Muta'aalii", stage: 4, grade: "sd3" },
+            { id: 79, arab: "يَا بَرُّ", latin: "79. Yaa Barru", stage: 4, grade: "sd3" },
+            { id: 80, arab: "يَا تَوَّابُ", latin: "80. Yaa Tawwaabu", stage: 4, grade: "sd3" }
+        ];
+
+        // 30 DO'A HARIAN TERPADU LENGKAP FROM PDF
+        const doaData = [
+            { id: 1, title: "Do'a kebaikan dunia akhirat", source: "QS. Al-Baqarah: 201", group: "A (PAUD)", grade: "paud", arab: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ", latin: "Robbanā ātinā fiddunyā hasanah wafil akhirati hasanah waqinā 'adzāban nār" },
+            { id: 2, title: "Do'a untuk kedua orang tua", source: "HR. At-Tirmidzi", group: "A (PAUD)", grade: "paud", arab: "رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا", latin: "Robbighfirli waliwālidayya warhamhumā kamā robbayānī shoghīrō" },
+            { id: 3, title: "Do'a berjabat tangan", source: "HR. Abu Dawud", group: "A (PAUD)", grade: "paud", arab: "الْحَمْدُ لِلَّهِ أَسْتَغْفِرُ اللَّهَ", latin: "Alhamdulillah Astaghfirullah" },
+            { id: 4, title: "Do'a sebelum dan sesudah makan dan minum", source: "HR. At-Tirmidzi", group: "A (PAUD)", grade: "paud", arab: "بِسْمِ اللهِ ** الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ", latin: "Sebelum makan/minum: \"Bismillah\" ** Sesudah makan/minum: \"Alhamdulillāhil ladzī ath'amanā wasaqōnā waja'alanā muslimīn\"" },
+            { id: 5, title: "Do'a lupa membaca do'a makan", source: "HR. At-Tirmidzi", group: "A (PAUD)", grade: "paud", arab: "بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ", latin: "Bismillahi awwalahū wa akhiroh" },
+            { id: 6, title: "Do'a mencari ilmu 1", source: "HR. Ibnu Majah", group: "B (SD 1)", grade: "sd1", arab: "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا طَيِّبًا وَعَمَلًا مُتَقَبَّلًا", latin: "Allōhumma innī as-aluka 'ilman nāfi'an warizqon thoyyiban wa 'amalan mutaqobbalan" },
+            { id: 7, title: "Do'a sesudah minum susu", source: "HR. At-Tirmidzi", group: "B (SD 1)", grade: "sd1", arab: "اللَّهُمَّ بَارِكْ لَنَا فِيْهِ وَزِدْنَا مِنْهُ", latin: "Allōhumma bāriklanā fihi wazidnā minhu" },
+            { id: 8, title: "Do'a akan dan bangun tidur", source: "HR. Al-Bukhari", group: "A (PAUD)", grade: "paud", arab: "اللَّهُمَّ بِاسْمِكَ أَمُوْتُ وَأَحْيَا | الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", latin: "Akan tidur: \"Allōhumma bismika amūtu wa ahyā\" | Bangun tidur: \"Alhamdulillāhilladzī ahyānā ba'da mā amātanā wa ilaihin nusyūr\"" },
+            { id: 9, title: "Do'a masuk dan keluar WC", source: "HR. Al-Bukhari & At-Tirmidzi", group: "A (PAUD)", grade: "paud", arab: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ ** غُفْرَانَكَ", latin: "Masuk WC: \"Allōhumma innī a'ūdzubika minal khubutsi wal khobā-its\" ** Keluar WC: \"Ghufrōnak\"" },
+            { id: 10, title: "Do'a ketika marah", source: "HR. Al-Bukhari & At-Tirmidzi", group: "B (SD 1)", grade: "sd1", arab: "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّحِيمِ", latin: "A'ūdzubillāhi minasy-syaithōnir rojīm" },
+            { id: 11, title: "Do'a mencari ilmu 2", source: "HR. Ibnu Majah", group: "C (SD 2)", grade: "sd2", arab: "اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي وَعَلِّمْنِي مَا يَنْفَعُنِي وَزِدْنِي عِلْمًا وَالْحَمْدُ لِلَّهِ عَلَى كُلِّ حَالٍ وَأَعُوْذُ بِاللَّهِ مِنْ عَذَابِ النَّارِ", latin: "Allōhummanfa'nī bimā 'allamtanī wa 'allimnī mā yanfa'unī wazidnī 'ilman walhamdulillāhi 'alā kulli hālin wa a'ūdzubillāhi min 'adzābin nār" },
+            { id: 12, title: "Do'a sebelum dan sesudah wudhu", source: "HR. Abu Dawud & Muslim", group: "C (SD 2)", grade: "sd2", arab: "بِسْمِ اللَّهِ ** أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ", latin: "Sebelum wudhu: \"Bismillah\" ** Sesudah wudhu: \"Asyhadu allā ilaha illallōh wa asyhadu anna Muhammadan 'abduhū warosūluh\"" },
+            { id: 13, title: "Do'a berdiri setelah duduk (Kafaratul Majelis)", source: "HR. At-Tirmidzi", group: "C (SD 2)", grade: "sd2", arab: "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ", latin: "Subhānakallōhumma wabihamdika asyhadu allā ilaha illā anta astaghfiruka wa atūbu ilaik" },
+            { id: 14, title: "Do'a ketika turun hujan", source: "HR. Al-Bukhari & An-Nasa'i", group: "C (SD 2)", grade: "sd2", arab: "اللَّهُمَّ اجْعَلْهُ صَيِّبًا نَافِعًا", latin: "Allōhummaj'alhu shoyyiban nāfi'ā" },
+            { id: 15, title: "Do'a mendengar petir", source: "HR. At-Tirmidzi", group: "C (SD 2)", grade: "sd2", arab: "اللَّهُمَّ لَا تَقْتُلْنَا بِغَضَبِكَ وَلَا تُهْلِكْنَا بِعَذَابِكَ وَعَافِنَا قَبْلَ ذَلِكَ", latin: "Allōhumma lā taqtulnā bighodhobika walā tuhliknā bi'adzābika wa 'āfinā qobla dzālik" },
+            { id: 16, title: "Do'a minta ilham yang baik", source: "HR. Muslim & At-Tirmidzi", group: "B (SD 1)", grade: "sd1", arab: "اللَّهُمَّ أَلْهِمْنِي رُشْدِي وَأَعِذْنِي مِنْ شَرِّ نَفْسِي", latin: "Allōhumma alhimnī rusydī wa a'idznī min syarri nafsi" },
+            { id: 17, title: "Do'a masuk rumah", source: "HR. Abu Dawud", group: "B (SD 1)", grade: "sd1", arab: "اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلِجِ وَخَيْرَ الْمَخْرَجِ بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا", latin: "Allōhumma innī as-aluka khoirol mauliji wa khoirol makhroji bismillāhi walajnā wa bismillāhi khorojnā wa 'alallōhi robbinā tawakkalnā" },
+            { id: 18, title: "Do'a keluar rumah", source: "HR. At-Tirmidzi", group: "B (SD 1)", grade: "sd1", arab: "بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ", latin: "Bismillāhi tawakkaltu 'alallōhi lā haula walā quwwata illā billāh" },
+            { id: 19, title: "Do'a masuk masjid", source: "HR. Muslim & Ibnu Majah", group: "B (SD 1)", grade: "sd1", arab: "بِسْمِ اللَّهِ وَالسَّلَامُ عَلَى رَسُولِ اللهِ اللَّهُمَّ اغْفِرْ لِي ذُنُوبِي وَافْتَحْ لِي أَبْوَابَ رَحْمَتِكَ", latin: "Bismillāhi wassalāmu 'alā rosūlillāhi allōhummaghfirlī dzunūbī waftahlī abwāba rohmatik" },
+            { id: 20, title: "Do'a keluar masjid", source: "HR. Muslim & Ibnu Majah", group: "B (SD 1)", grade: "sd1", arab: "بِسْمِ اللَّهِ وَالسَّلَامُ عَلَى رَسُولِ اللهِ اللَّهُمَّ اغْفِرْ لِي ذُنُوبِي وَافْتَحْ لِي أَبْوَابَ فَضْلِكَ", latin: "Bismillāhi wassalāmu 'alā rosūlillāhi allōhummaghfirlī dzunūbī waftahlī abwāba fadhlik" },
+            { id: 21, title: "Do'a memakai pakaian", source: "HR. Abu Dawud", group: "B (SD 1)", grade: "sd1", arab: "الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا الثَّوْبَ وَرَزَقَنِيْهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ", latin: "Alhamdulillāhil ladzī kasānī hādzats-tsauba warozaqonīhi min ghoiri haulim minnī walā quwwah" },
+            { id: 22, title: "Do'a ketika berbuka puasa", source: "HR. Abu Dawud", group: "B (SD 1)", grade: "sd1", arab: "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ", latin: "Dzahabazh-zhoma-u wabtallatil 'urūqu watsabatal ajru insya Allōh" },
+            { id: 23, title: "Do'a sesudah adzan", source: "HR. Al-Bukhari", group: "D (SD 3)", grade: "sd3", arab: "اللَّهُمَّ رَبَّ هَذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلَاةِ الْقَائِمَةِ آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ وَابْعَثْهُ مَقَامًا مَحْمُودًا الَّذِي وَعَدْتَهُ", latin: "Allōhumma robba hādzihid-da'watit-tāmmah wash-sholātil-qō-imah āti Muhammadanil-wasīlata wal-fadhilah wab'atshu maqōmam-mahmūdanil-ladzī wa'adtah" },
+            { id: 24, title: "Do'a ketika menjenguk orang sakit", source: "HR. Al-Bukhari", group: "D (SD 3)", grade: "sd3", arab: "لَا بَأْسَ طَهُورٌ إِنْ شَاءَ اللَّهُ", latin: "Lā ba'sa thohūrun insya Allōh" },
+            { id: 25, title: "Do'a ketika naik kendaraan", source: "QS. Az-Zukhruf: 13-14", group: "D (SD 3)", grade: "sd3", arab: "بِسْمِ اللَّهِ سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ", latin: "Bismillāhi subhānal-ladzī sakhkhoro lanā hādzā wamā kunnā lahū muqrinīn wa innā ilā robbinā lamunqolibūn" },
+            { id: 26, title: "Do'a lailatul qodar", source: "HR. At-Tirmidzi", group: "D (SD 3)", grade: "sd3", arab: "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي", latin: "Allōhumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'annī" },
+            { id: 27, title: "Do'a ketika masuk pasar", source: "HR. At-Tirmidzi", group: "D (SD 3)", grade: "sd3", arab: "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ يُحْيِي وَيُمِيتُ وَهُوَ حَيٌّ لَا يَمُوتُ بِيَدِهِ الْخَيْرُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ", latin: "La ilaha illallohu wahdahū lā syarīka lah lahul mulku walahul hamdu yuhyī wayumītu wahuwa hayyul lā yamūt biyadihil khoiru wahuwa 'alā kulli syai-in qodir" },
+            { id: 28, title: "Do'a berlindung dari syirik", source: "HR. Ahmad", group: "D (SD 3)", grade: "sd3", arab: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ أَنْ أُشْرِكَ بِكَ وَأَنَا أَعْلَمُ وَأَسْتَغْفِرُكَ لِمَا لَا أَعْلَمُ", latin: "Allōhumma innī a'ūdzubika an usyrika bika wa ana a'lamu wa astaghfiruka limā lā a'lam" },
+            { id: 29, title: "Do'a berlindung dari siksa kubur", source: "HR. Al-Bukhari & Muslim", group: "D (SD 3)", grade: "sd3", arab: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ وَمِنْ عَذَابِ النَّارِ وَمِنْ فِتْنَةِ الْمَحْيَا وَالْمَمَاتِ وَمِنْ فِتْنَةِ الْمَسِيحِ الدَّجَّالِ", latin: "Allōhumma innī a'ūdzubika min 'adzābil qobri wamin 'adzābin nāri wamin fitnatil mahyā wal mamāti wamin fitnatil masīhid-dajjal" },
+            { id: 30, title: "Do'a ketika terkena musibah", source: "QS. Al-Baqarah: 156 & HR. Muslim", group: "D (SD 3)", grade: "sd3", arab: "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ اللَّهُمَّ أَجْرْنِي فِي مُصِيبَتِي وَأُخْلِفْ لِي خَيْرًا مِنْهَا", latin: "Innā lillāhi wa innā ilaihi rōji'ūn allōhumma'-jurnī fi mushībatī wa akhlif lī khoirom-minhā" }
+        ];
+
+        // 19 SURAT PENDEK FROM PDF
+        const suratData = [
+            { id: 1, name: "Al-Fatihah", verses: 7, type: "Target Utama", group: "PAUD", grade: "paud" },
+            { id: 2, name: "An-Nas", verses: 6, type: "Target Utama", group: "PAUD", grade: "paud" },
+            { id: 3, name: "Al-Falaq", verses: 5, type: "Target Utama", group: "PAUD", grade: "paud" },
+            { id: 4, name: "Al-Ikhlas", verses: 4, type: "Target Utama", group: "PAUD", grade: "paud" },
+            { id: 5, name: "Al-Lahab", verses: 5, type: "Target Utama", group: "Kelas 1 (Jilid 1-2)", grade: "sd1" },
+            { id: 6, name: "An-Nashr", verses: 3, type: "Target Utama", group: "Kelas 1 (Jilid 1-2)", grade: "sd1" },
+            { id: 7, name: "Al-Kafirun", verses: 6, type: "Target Utama", group: "Kelas 1 (Jilid 1-2)", grade: "sd1" },
+            { id: 8, name: "Al-Kautsar", verses: 3, type: "Target Utama", group: "Kelas 2 (Jilid 3-4)", grade: "sd2" },
+            { id: 9, name: "Al-Ma'un", verses: 7, type: "Target Utama", group: "Kelas 2 (Jilid 3-4)", grade: "sd2" },
+            { id: 10, name: "Al-Quraisy", verses: 4, type: "Target Utama", group: "Kelas 2 (Jilid 3-4)", grade: "sd2" },
+            { id: 11, name: "Al-Fil", verses: 5, type: "Target Utama", group: "Kelas 3 (Jilid 5-6)", grade: "sd3" },
+            { id: 12, name: "Al-Humazah", verses: 9, type: "Target Utama", group: "Kelas 3 (Jilid 5-6)", grade: "sd3" },
+            { id: 13, name: "Al-Ashr", verses: 3, type: "Target Utama", group: "Kelas 3 (Jilid 5-6)", grade: "sd3" },
+            { id: 14, name: "At-Takatsur", verses: 8, type: "Pengayaan", group: "Kelas 2 (Jilid 3-4)", grade: "sd2" },
+            { id: 15, name: "Al-Qori'ah", verses: 11, type: "Pengayaan", group: "Kelas 2 (Jilid 3-4)", grade: "sd2" },
+            { id: 16, name: "Al-'Adiyat", verses: 11, type: "Pengayaan", group: "Kelas 3 (Jilid 5-6)", grade: "sd3" },
+            { id: 17, name: "Az-Zalzalah", verses: 8, type: "Pengayaan", group: "Kelas 3 (Jilid 5-6)", grade: "sd3" },
+            { id: 18, name: "Al-Bayyinah", verses: 8, type: "Pengayaan", group: "Kelas 3 (Jilid 5-6)", grade: "sd3" },
+            { id: 19, name: "Al-Qodr", verses: 5, type: "Pengayaan", group: "Kelas 3 (Jilid 5-6)", grade: "sd3" }
+        ];
+
+        // 6 DALIL UTAMA FROM PDF
+        const dalilData = [
+            {
+                theme: "Tema 1: Dalil Mengaji",
+                code: "1a",
+                source: "HR. Ibnu Majah",
+                arab: "قَالَ رَسُولُ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ : طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ",
+                latin: "Tholabul 'ilmi faridhotun 'alā kulli muslim",
+                translation: "Mencari ilmu itu wajib bagi tiap-tiap muslim."
+            },
+            {
+                theme: "Tema 1: Dalil Mengaji",
+                code: "1b",
+                source: "HR. Abu Dawud",
+                arab: "الْعِلْمُ ثَلَاثَةٌ وَمَا سِوَى ذَلِكَ فَهُوَ فَضْلٌ : آيَةٌ مُحْكَمَةٌ أَوْ سُنَةٌ قَائِمَةٌ أَوْ فَرِيضَةٌ عَادِلَةٌ",
+                latin: "Al-'ilmu tsalātsatun wamā siwā dzālika fahuwa fadhlun: āyatun muhkamatun au sunnatun qō-imatun au farīdhotun 'ādilah",
+                translation: "Ilmu ada tiga selain itu lebihan, yaitu ayat yang menghukumi, sunnah yang tegak, ilmu bagi waris yang adil."
+            },
+            {
+                theme: "Tema 2: Dalil Mengamal",
+                code: "2a",
+                source: "QS. Az-Zukhruf: 72",
+                arab: "قَالَ اللَّهُ تَعَالَى: وَتِلْكَ الْجَنَّةُ الَّتِي أُوْرِثْتُمُوهَا بِمَا كُنْتُمْ تَعْمَلُونَ",
+                latin: "Watilkal jannatul latī ūrits-tumūhā bimā kuntum ta'malūn",
+                translation: "Demikian itu surga diwariskan kepadamu sebab perbuatanmu/pengamalanmu."
+            },
+            {
+                theme: "Tema 2: Dalil Mengamal",
+                code: "2b",
+                source: "QS. Fushshilat: 46",
+                arab: "مَنْ عَمِلَ صَالِحًا فَلِنَفْسِهِ وَمَنْ أَسَاءَ فَعَلَيْهَا وَمَا رَبُّكَ بِظَلَّامٍ لِلْعَبِيدِ",
+                latin: "Man 'amila shōlihan falinafsihi waman asā-a fa'alaihā wamā robbuka bizhollāmil lil'abīd",
+                translation: "Barangsiapa yang mengerjakan amal yang sholih/baik, maka (pahalanya bermanfaat) untuk dirinya sendiri, dan barangsiapa mengerjakan amal yang jelek, maka (dosanya akan memberatkan) pada dirinya sendiri; Dan sekali-kali Tuhanmu (Muhammad) tidak akan menganiaya pada hamba-hamba-Nya."
+            },
+            {
+                theme: "Tema 3: Dalil Membela",
+                code: "3a",
+                source: "QS. At-Taubah: 41",
+                arab: "قَالَ اللَّهُ تَعَالَى : انْفِرُوْا خِفَافًا وَثِقَالًا وَجَاهِدُوا بِأَمْوَALِكُمْ وَأَنْفُسِكُمْ فِي سَبِيْلِ اللَّهِ ذَلِكُمْ خَيْرٌ لَكُمْ إِنْ كُنْتُمْ تَعْلَمُونَ",
+                latin: "Infirū khifāfaw watsiqōlaw wajāhidū bi-amwālikum wa-anfusikum fi sabīlillāhi dzālikum khoirul lakum in kuntum ta'lamūn",
+                translation: "Berangkatlah kamu dengan keadaan ringan dan berat, dan belalah agama Allah dengan harta dan dirimu, seperti itu baik bagimu jika kamu tahu."
+            },
+            {
+                theme: "Tema 3: Dalil Membela",
+                code: "3b",
+                source: "HR. Muslim",
+                arab: "يَا ابْنَ آدَمَ أَنْفِقُ أُنْفِقْ عَلَيْكَ",
+                latin: "Ya ibna Ādama anfiq unfiq 'alaik",
+                translation: "Wahai anak turunnya Adam infaklah kamu maka Aku (Allah) akan menginfaki padamu."
+            }
+        ];
+
+        // 18 ASPEK TATAKRAMA LENGKAP WITH ALL POINTS FROM PDF
+        const adabData = [
+            {
+                title: "1. Tatakrama ta'dhim dan berbuat baik kepada kedua orangtua",
+                points: [
+                    "Mengucapkan salam/menyapa dan menjawab salam",
+                    "Berjabat tangan sambil menundukkan kepala dan mencium tangannya",
+                    "Apabila dipanggil segera menjawab dan mendatangi",
+                    "Bertutur kata dengan bahasa yang halus dan sopan (boso) dengan nada suara lebih rendah",
+                    "Mendengarkan dan memperhatikan ketika dinasehati",
+                    "Ketika berjalan di depan orangtua sedikit membungkuk",
+                    "Berpamitan ketika akan bepergian",
+                    "Bersyukur atas pemberian orangtua",
+                    "Tidak meminta sesuatu dengan sak dek sak nyet (seketika harus dikabulkan)",
+                    "Selalu mendoakan kedua orangtua",
+                    "Mendahulukan kedua orangtua pada saat makan dan minum",
+                    "Mengerjakan / mentaati perintah-perintah orangtua",
+                    "Membantu meringankan kesibukan / pekerjaan orangtua (pekerjaan rumah / bukan mencari ma'isyah)",
+                    "Menjaga nama baik dan kehormatan kedua orangtua",
+                    "Mendahulukan kepentingan kedua orangtua daripada diri sendiri",
+                    "Tidak memaksakan kehendak (meminta sesuatu tanpa mempertimbangkan kemampuan kedua orangtua)",
+                    "Segera meminta maaf apabila melakukan kesalahan/menyakiti hati kedua orangtua",
+                    "Selalu meminta keridlo'an dan meminta doa yang baik dari kedua orangtua",
+                    "Berusaha mewujudkan harapan dan cita-cita orangtua"
+                ]
+            },
+            {
+                title: "2. Tatakrama menghormati saudara yang lebih tua dan menyayangi saudara yang lebih muda",
+                points: [
+                    "Mengucapkan salam/menyapa dan menjawab salam",
+                    "Berjabat tangan sambil agak menundukkan kepala kepada yang lebih tua",
+                    "Segera menjawab dan mendatangi bila dipanggil",
+                    "Bertutur kata dengan bahasa yang baik dan sopan",
+                    "Saling mensyukuri",
+                    "Saling mendoakan"
+                ]
+            },
+            {
+                title: "3. Tatakrama menghormati guru dan muballigh-muballighot",
+                points: [
+                    "Mengucapkan salam/menyapa dan menjawab salam",
+                    "Berjabat tangan dengan cium tangan (perempuan dengan muballighot dan laki-laki terhadap muballigh)",
+                    "Bertutur kata dengan bahasa yang halus dan sopan (boso)",
+                    "Mendengarkan dan memperhatikan ketika menerima materi pelajaran dari guru dan muballigh-muballighot",
+                    "Bila melintas di depannya mengucapkan permisi sambil agak membungkukkan badan",
+                    "Bersyukur dan mendoakan kepada guru dan muballigh-muballighot",
+                    "Bila menunjukkan sesuatu menggunakan ibu jari tangan kanan"
+                ]
+            },
+            {
+                title: "4. Tatakrama bergaul dengan teman",
+                points: [
+                    "Mengucapkan salam/menyapa",
+                    "Berjabat tangan dengan lembut ketika bertemu",
+                    "Bertutur kata dengan bahasa yang baik dan sopan (papan, empan, adepan)",
+                    "Menghindari gurauan yang berlebihan dan gojlog-gojlokan",
+                    "Tidak memanggil dengan panggilan/julukan yang tidak baik/dibenci",
+                    "Tidak mengejek, menghina, menggunjing, maupun mengadu domba",
+                    "Menghargai pendapat dan karya teman"
+                ]
+            },
+            {
+                title: "5. Tatakrama ketika di masjid",
+                points: [
+                    "Membaca doa ketika masuk dan keluar masjid",
+                    "Sholat sunah tahiyatul masjid",
+                    "Duduk dengan tenang, tidak bergurau, dan tidak ramai dalam masjid"
+                ]
+            },
+            {
+                title: "6. Tatakrama ketika di tempat pengajian dan sekolah",
+                points: [
+                    "Menjaga kebersihan dan kerapihan kelas",
+                    "Mengikuti proses pembelajaran dengan tenang dan penuh perhatian"
+                ]
+            },
+            {
+                title: "7. Tatakrama terhadap lingkungan dan alam sekitar",
+                points: [
+                    "Membuang sampah pada tempatnya",
+                    "Tidak merusak tanaman",
+                    "Tidak menyakiti hewan piaraan"
+                ]
+            },
+            {
+                title: "8. Tatakrama terhadap Ulil Amri",
+                points: [
+                    "Mengucapkan salam atau menyapa dengan ramah bila berpapasan",
+                    "Berjabat tangan sambil menundukkan kepala dan mencium tangannya",
+                    "Bertutur kata dengan bahasa yang halus, baik dan sopan",
+                    "Bila melintas di depannya mengucapkan permisi sambil agak membungkukkan badan",
+                    "Bila menunjukkan sesuatu menggunakan ibu jari tangan kanan",
+                    "Mendengarkan nasehat dan mengerjakan/mentaati perintah-perintahnya",
+                    "Bersyukur dan mendoakan kepada Ulil Amri"
+                ]
+            },
+            {
+                title: "9. Tatakrama bertamu / diajak bertamu dan kedatangan tamu",
+                points: [
+                    "Ketika bertamu/diajak bertamu berpakaian rapi, pantas dan sopan, mengetuk pintu dengan mengucapkan salam, berjabat tangan dengan tuan rumah, duduk dengan sopan, tenang dan tidak lari-lari, makan dan minum setelah dipersilahkan tuan rumah, dan tidak merusak barang-barang milik tuan rumah",
+                    "Menyambut tamu dengan wajah ceria dan berjabat tangan sambil cium tangan, menghindari ikut nimbrung dalam pembicaraan tamu dan menjaga kenyamanan tamu"
+                ]
+            },
+            {
+                title: "10. Tatakrama berpakaian",
+                points: [
+                    "Memperkenalkan pakaian rapi, sopan dan benar menurut syariat Islam",
+                    "Memperkenalkan ciri-ciri pakaian laki-laki dan perempuan"
+                ]
+            },
+            {
+                title: "11. Tatakrama tidur",
+                points: [
+                    "Membaca doa sebelum tidur dan setelah bangun tidur",
+                    "Tidur dengan terlentang atau miring ke kanan, dan tidak tengkurap",
+                    "Tidak tidur di tempat yang membahayakan",
+                    "Merapikan kembali tempat tidur setelah bangun tidur"
+                ]
+            },
+            {
+                title: "12. Tatakrama ketika menguap",
+                points: [
+                    "Menutup mulut",
+                    "Tidak bersuara dan tidak mengeluarkan kata-kata yang dibuat-buat"
+                ]
+            },
+            {
+                title: "13. Tatakrama ketika bersin",
+                points: [
+                    "Menutup mulut dan tidak mempermainkan suara",
+                    "Berdoa setelah bersin dan menjawab doanya orang bersin"
+                ]
+            },
+            {
+                title: "14. Tatakrama terhadap kerabat",
+                points: [
+                    "Mengenal silsilah dan menyambung kerabat",
+                    "Berjabat tangan dengan lembut ketika bertemu",
+                    "Bertutur kata dengan bahasa yang halus, baik dan sopan (boso)",
+                    "Mengutamakan perhatian terhadap kerabat",
+                    "Akrab dan menyaudara (nyemanak)",
+                    "Saling titip salam dan mendoakan"
+                ]
+            },
+            {
+                title: "15. Tatakrama terhadap tetangga",
+                points: [
+                    "Mengucapkan salam/menyapa dan mengucapkannya dengan ramah",
+                    "Bertutur kata dengan bahasa yang halus, baik dan sopan (papan, empan, adepan)",
+                    "Tidak mengejek, menghina, menggunjing, maupun mengadu domba",
+                    "Bila meminjam sesuatu segera mengembalikan dengan baik",
+                    "Tidak kikir/pelit",
+                    "Menghargai pemberian tetangga walaupun tidak menyukainya",
+                    "Tidak mengganggu tetangga yang sedang istirahat",
+                    "Menjenguknya apabila sakit"
+                ]
+            },
+            {
+                title: "16. Tatakrama bersepeda",
+                points: [
+                    "Mengucapkan salam atau menyapa/permisi ketika berpapasan dengan orang yang berjalan kaki/sedang duduk",
+                    "Tidak ngebut / ugal-ugalan di jalan, terutama ketika melewati gang",
+                    "Tidak berboncengan tiga anak atau lebih"
+                ]
+            },
+            {
+                title: "17. Tatakrama ketika makan bersama",
+                points: [
+                    "Duduk dengan sopan",
+                    "Mendahulukan yang lebih tua",
+                    "Tidak mengambil makanan yang dihidangkan dengan sendok yang sudah digunakan untuk makan",
+                    "Makan dengan tangan kanan",
+                    "Mengambil makanan secukupnya dan dihabiskan",
+                    "Dalam hal makan prasmanan hendaknya mengambil makanan sewajarnya, serta segera pergi untuk memberi kesempatan kepada yang lain bisa mengambil makanan dengan mudah",
+                    "Mengambil makanan yang terdekat",
+                    "Mengambil makanan di wadah dari yang paling tepi",
+                    "Tidak berbicara ketika mulut masih penuh makanan",
+                    "Mengunyah makanan dengan bibir tertutup, sehingga kunyahannya tidak bersuara",
+                    "Tidak memasukkan makanan ke mulut sebelum makanan di dalam mulut habis",
+                    "Tidak terdengar suara sendok, garpu dan piring",
+                    "Tidak melakukan hal-hal yang tabu (kentut, bersendawa dan berdahak)",
+                    "Ketika membersihkan makanan di gigi menutup mulut dengan tangan dan tidak membuangnya di hadapan orang lain"
+                ]
+            },
+            {
+                title: "18. Tatakrama mencari ilmu",
+                points: [
+                    "Memakai pakaian yang rapi, bersih dan suci",
+                    "Membawa kitab yang dimanqulkan",
+                    "Menata dan merapikan tempat mengaji",
+                    "Datang lebih awal sebelum pengajian dimulai",
+                    "Duduk dengan rapi dan meletakkan kitab di meja belajar/dampar",
+                    "Selama guru mengajar memperhatikan dan menghadap ke arah guru/tidak nyingkur",
+                    "Tidak bergurau, ngobrol, makan dan minum serta tidak saur manuk",
+                    "Selesai pengajian mengembalikan meja/dampar dan merapikan tempat mengaji",
+                    "Bersyukur dan bersalaman dengan guru dan muballigh-muballighot (perempuan dengan muballighot dan laki-laki dengan muballigh)"
+                ]
+            }
+        ];
+
+        // STATE & PERSISTENCE
+        let currentSectionIndex = 0;
+        let activeGradeFilter = 'all';
+        let userProgress = JSON.parse(localStorage.getItem('ppg_caberawit_progress')) || {
+            asmaul: [],
+            doa: [],
+            surat: [],
+            dalil: []
+        };
+
+        // DOM ELEMENTS
+        const contentScrollArea = document.getElementById('contentScrollArea');
+
+        // INITIALIZATION ON DOM LOAD
+        window.addEventListener('DOMContentLoaded', () => {
+            renderAsmaulHusna();
+            renderDoaHarian();
+            renderSuratPendek();
+            renderDalilUtama();
+            renderAdabTatakrama();
+            updateProgressCounters();
+            setupEventListeners();
+        });
+
+        // NAVIGATION LOGIC
+        function navigateTo(sectionId) {
+            const index = sections.indexOf(sectionId);
+            if (index !== -1) {
+                currentSectionIndex = index;
+                showSection(sectionId);
+            }
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
+            const targetSec = document.getElementById(`sec-${sectionId}`);
+            if (targetSec) {
+                targetSec.classList.remove('hidden');
+            }
+
+            // Update Active Nav Sidebar
+            document.querySelectorAll('.nav-item').forEach(item => {
+                if (item.getAttribute('data-target') === sectionId) {
+                    item.classList.add('bg-emerald-100', 'text-emerald-900', 'font-bold');
+                    item.classList.remove('text-slate-700');
+                } else {
+                    item.classList.remove('bg-emerald-100', 'text-emerald-900', 'font-bold');
+                    item.classList.add('text-slate-700');
+                }
+            });
+
+            // Update Pagination Controls
+            document.getElementById('chapterIndicator').innerText = `${currentSectionIndex + 1} / ${sections.length}`;
+            document.getElementById('btnPrevChapter').disabled = currentSectionIndex === 0;
+            document.getElementById('btnNextChapter').disabled = currentSectionIndex === sections.length - 1;
+
+            // Scroll to top
+            contentScrollArea.scrollTop = 0;
+
+            // Close mobile sidebar if open
+            closeMobileSidebar();
+        }
+
+        function navigateChapter(direction) {
+            const newIndex = currentSectionIndex + direction;
+            if (newIndex >= 0 && newIndex < sections.length) {
+                navigateTo(sections[newIndex]);
+            }
+        }
+
+        // RENDER ASMAUL HUSNA
+        function renderAsmaulHusna() {
+            const container = document.getElementById('asmaulContainer');
+            container.innerHTML = '';
+
+            const stages = [
+                { title: "Tahap 1 (PAUD): Urutan 1-20", range: [1, 20], grade: "paud" },
+                { title: "Tahap 2 (SD Kelas 1 / Jilid 1-2): Urutan 21-40", range: [21, 40], grade: "sd1" },
+                { title: "Tahap 3 (SD Kelas 2 / Jilid 3-4): Urutan 41-60", range: [41, 60], grade: "sd2" },
+                { title: "Tahap 4 (SD Kelas 3 / Jilid 5-6): Urutan 61-80", range: [61, 80], grade: "sd3" }
+            ];
+
+            stages.forEach(stg => {
+                const stageItems = asmaulData.filter(item => item.id >= stg.range[0] && item.id <= stg.range[1]);
+                
+                const stageCard = document.createElement('div');
+                stageCard.className = `stage-block border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm grade-item grade-${stg.grade}`;
+                
+                let itemsHTML = stageItems.map(item => {
+                    const isChecked = userProgress.asmaul.includes(item.id);
+                    return `
+                        <div class="p-3 bg-slate-50/50 hover:bg-emerald-50/40 rounded-lg border border-slate-200/80 flex items-center justify-between transition gap-2">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" onchange="toggleCheck('asmaul', ${item.id})" ${isChecked ? 'checked' : ''} 
+                                    class="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500 cursor-pointer">
+                                <div>
+                                    <span class="text-xs font-semibold text-slate-700 block">${item.latin}</span>
+                                </div>
+                            </div>
+                            <span class="font-arabic text-xl font-bold text-emerald-900" dir="rtl">${item.arab}</span>
+                        </div>
+                    `;
+                }).join('');
+
+                stageCard.innerHTML = `
+                    <div class="p-3.5 bg-emerald-800 text-white font-bold text-xs flex justify-between items-center">
+                        <span><i class="fas fa-star text-amber-400 mr-1.5"></i> ${stg.title}</span>
+                        <span class="text-[10px] bg-emerald-700 px-2 py-0.5 rounded-full">20 Asmaul Husna</span>
+                    </div>
+                    <div class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        ${itemsHTML}
+                    </div>
+                `;
+
+                container.appendChild(stageCard);
+            });
+        }
+
+        // RENDER DO'A HARIAN
+        function renderDoaHarian() {
+            const container = document.getElementById('doaContainer');
+            container.innerHTML = doaData.map(doa => {
+                const isChecked = userProgress.doa.includes(doa.id);
+                return `
+                    <div class="doa-card p-4 rounded-xl border border-slate-200 bg-white hover:border-emerald-300 transition shadow-sm space-y-3 grade-item grade-${doa.grade}">
+                        <div class="flex items-start justify-between gap-3 border-b border-slate-100 pb-2.5">
+                            <div class="flex items-start gap-2.5">
+                                <input type="checkbox" onchange="toggleCheck('doa', ${doa.id})" ${isChecked ? 'checked' : ''} 
+                                    class="mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500 cursor-pointer">
+                                <div>
+                                    <h4 class="font-bold text-sm text-slate-900">${doa.id}. ${doa.title}</h4>
+                                    <span class="text-[11px] text-amber-700 font-medium">${doa.source}</span>
+                                </div>
+                            </div>
+                            <span class="text-[10px] bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full font-semibold shrink-0">
+                                Kelompok ${doa.group}
+                            </span>
+                        </div>
+                        <div class="space-y-2 text-right">
+                            <div class="font-arabic text-2xl text-emerald-950 font-bold leading-loose" dir="rtl">${doa.arab}</div>
+                            <p class="text-xs text-slate-600 font-medium italic text-left bg-sand-100/60 p-2.5 rounded-lg border border-slate-200/60">${doa.latin}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // RENDER SURAT PENDEK
+        function renderSuratPendek() {
+            const container = document.getElementById('suratContainer');
+            container.innerHTML = suratData.map(surat => {
+                const isChecked = userProgress.surat.includes(surat.id);
+                const isPengayaan = surat.type === "Pengayaan";
+                return `
+                    <div class="p-4 rounded-xl border ${isPengayaan ? 'border-amber-200 bg-amber-50/30' : 'border-slate-200 bg-white'} hover:shadow-md transition flex items-center justify-between grade-item grade-${surat.grade}">
+                        <div class="flex items-center gap-3">
+                            <input type="checkbox" onchange="toggleCheck('surat', ${surat.id})" ${isChecked ? 'checked' : ''} 
+                                class="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500 cursor-pointer">
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900">${surat.id}. Surat ${surat.name}</h4>
+                                <span class="text-[11px] text-slate-500">${surat.verses} Ayat | ${surat.group}</span>
+                            </div>
+                        </div>
+                        <span class="text-[10px] ${isPengayaan ? 'bg-amber-200 text-amber-900' : 'bg-emerald-100 text-emerald-800'} px-2.5 py-1 rounded-full font-bold">
+                            ${surat.type}
+                        </span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // RENDER DALIL UTAMA
+        function renderDalilUtama() {
+            const container = document.getElementById('dalilContainer');
+            container.innerHTML = dalilData.map((dalil, idx) => {
+                const isChecked = userProgress.dalil.includes(dalil.code);
+                return `
+                    <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-sm space-y-3">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                            <div class="flex items-center gap-2.5">
+                                <input type="checkbox" onchange="toggleCheck('dalil', '${dalil.code}')" ${isChecked ? 'checked' : ''} 
+                                    class="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500 cursor-pointer">
+                                <h4 class="font-bold text-sm text-emerald-900">${dalil.theme} (Dalil ${dalil.code})</h4>
+                            </div>
+                            <span class="text-xs font-semibold bg-amber-100 text-amber-900 px-2.5 py-0.5 rounded-full">${dalil.source}</span>
+                        </div>
+                        <div class="font-arabic text-2xl text-emerald-950 font-bold leading-relaxed text-right" dir="rtl">
+                            ${dalil.arab}
+                        </div>
+                        <div class="space-y-1.5 text-xs">
+                            <p class="font-semibold text-slate-700 italic">"${dalil.latin}"</p>
+                            <p class="text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-200"><strong>Artinya:</strong> ${dalil.translation}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // RENDER ADAB & TATAKRAMA (18 ASPEK LENGKAP)
+        function renderAdabTatakrama() {
+            const container = document.getElementById('adabContainer');
+            container.innerHTML = adabData.map(item => `
+                <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+                    <h4 class="font-bold text-slate-900 text-xs border-b border-slate-200 pb-1.5 flex items-center gap-1.5">
+                        <i class="fas fa-check-double text-emerald-600"></i> ${item.title}
+                    </h4>
+                    <ul class="space-y-1 text-slate-700 pl-2">
+                        ${item.points.map((pt, pIdx) => `
+                            <li class="flex items-start gap-2">
+                                <span class="font-semibold text-emerald-700 shrink-0">${String.fromCharCode(97 + pIdx)}.</span>
+                                <span>${pt}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `).join('');
+        }
+
+        // CHECKLIST TOGGLE LOGIC
+        function toggleCheck(type, id) {
+            const index = userProgress[type].indexOf(id);
+            if (index > -1) {
+                userProgress[type].splice(index, 1);
+            } else {
+                userProgress[type].push(id);
+            }
+            localStorage.setItem('ppg_caberawit_progress', JSON.stringify(userProgress));
+            updateProgressCounters();
+        }
+
+        function updateProgressCounters() {
+            const asmaulCount = userProgress.asmaul.length;
+            const doaCount = userProgress.doa.length;
+            const suratCount = userProgress.surat.length;
+            const dalilCount = userProgress.dalil.length;
+
+            document.getElementById('badge-asmaul').innerText = `${asmaulCount}/80`;
+            document.getElementById('badge-doa').innerText = `${doaCount}/30`;
+            document.getElementById('badge-surat').innerText = `${suratCount}/19`;
+            document.getElementById('badge-dalil').innerText = `${dalilCount}/6`;
+
+            document.getElementById('asmaulProgressCount').innerText = `${asmaulCount} / 80 Terhafalkan`;
+            document.getElementById('asmaulProgressBar').style.width = `${(asmaulCount / 80) * 100}%`;
+
+            document.getElementById('doaProgressCount').innerText = `${doaCount} / 30 Terhafalkan`;
+            document.getElementById('doaProgressBar').style.width = `${(doaCount / 30) * 100}%`;
+
+            document.getElementById('suratProgressCount').innerText = `${suratCount} / 19 Terhafalkan`;
+            document.getElementById('suratProgressBar').style.width = `${(suratCount / 19) * 100}%`;
+
+            // Overall
+            const totalItems = 80 + 30 + 19 + 6;
+            const totalDone = asmaulCount + doaCount + suratCount + dalilCount;
+            const percentage = Math.round((totalDone / totalItems) * 100);
+
+            document.getElementById('overallProgressText').innerText = `${percentage}%`;
+            document.getElementById('overallProgressBar').style.width = `${percentage}%`;
+        }
+
+        function resetProgress() {
+            if (confirm("Apakah Anda yakin ingin mereset seluruh catatan progres hafalan?")) {
+                userProgress = { asmaul: [], doa: [], surat: [], dalil: [] };
+                localStorage.setItem('ppg_caberawit_progress', JSON.stringify(userProgress));
+                renderAsmaulHusna();
+                renderDoaHarian();
+                renderSuratPendek();
+                renderDalilUtama();
+                updateProgressCounters();
+            }
+        }
+
+        // FILTER GRADE LEVEL
+        function filterGrade(grade) {
+            activeGradeFilter = grade;
+            document.querySelectorAll('.grade-filter').forEach(btn => {
+                if (btn.getAttribute('data-grade') === grade) {
+                    btn.className = 'grade-filter bg-emerald-700 text-white px-2.5 py-1 rounded-md text-[11px] font-medium transition';
+                } else {
+                    btn.className = 'grade-filter bg-slate-100 text-slate-700 hover:bg-slate-200 px-2.5 py-1 rounded-md text-[11px] font-medium transition';
+                }
+            });
+
+            document.querySelectorAll('.grade-item').forEach(item => {
+                if (grade === 'all' || item.classList.contains(`grade-${grade}`)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        // FONT SIZE ADJUSTER
+        function setFontSize(size) {
+            const rootContainer = document.querySelector('.text-readable');
+            rootContainer.classList.remove('text-sm', 'text-base', 'text-lg');
+            
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.className = 'size-btn px-2 py-0.5 rounded text-[11px] font-semibold text-slate-600';
+            });
+
+            const activeBtn = document.querySelector(`.size-btn[data-size="${size}"]`);
+            if (activeBtn) activeBtn.className = 'size-btn px-2 py-0.5 rounded text-[11px] font-semibold bg-white shadow-sm text-slate-800';
+
+            if (size === 'normal') {
+                rootContainer.style.fontSize = '14px';
+            } else if (size === 'large') {
+                rootContainer.style.fontSize = '16px';
+            } else if (size === 'xlarge') {
+                rootContainer.style.fontSize = '18px';
+            }
+        }
+
+        // GLOBAL SEARCH FUNCTIONALITY
+        function setupEventListeners() {
+            const searchInput = document.getElementById('globalSearch');
+            const clearBtn = document.getElementById('clearSearch');
+            const searchPanel = document.getElementById('searchResultsPanel');
+            const container = document.getElementById('searchResultsContainer');
+
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.trim().toLowerCase();
+                if (query.length > 1) {
+                    clearBtn.classList.remove('hidden');
+                    searchPanel.classList.remove('hidden');
+                    document.getElementById('searchQueryText').innerText = query;
+                    performSearch(query, container);
+                } else {
+                    clearBtn.classList.add('hidden');
+                    searchPanel.classList.add('hidden');
+                }
+            });
+
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                clearBtn.classList.add('hidden');
+                searchPanel.classList.add('hidden');
+            });
+
+            // Mobile sidebar toggle
+            document.getElementById('toggleMobileSidebar').addEventListener('click', () => {
+                document.getElementById('sidebar').classList.remove('-translate-x-full');
+            });
+            document.getElementById('closeMobileSidebar').addEventListener('click', closeMobileSidebar);
+        }
+
+        function closeMobileSidebar() {
+            document.getElementById('sidebar').classList.add('-translate-x-full');
+        }
+
+        function closeSearch() {
+            document.getElementById('searchResultsPanel').classList.add('hidden');
+            document.getElementById('globalSearch').value = '';
+            document.getElementById('clearSearch').classList.add('hidden');
+        }
+
+        function performSearch(query, container) {
+            let results = [];
+
+            // Search in Doa
+            doaData.forEach(doa => {
+                if (doa.title.toLowerCase().includes(query) || doa.latin.toLowerCase().includes(query) || doa.source.toLowerCase().includes(query)) {
+                    results.push({
+                        category: "Do'a Harian",
+                        title: `${doa.id}. ${doa.title}`,
+                        sub: doa.source,
+                        content: doa.latin,
+                        target: "doa-harian"
+                    });
+                }
+            });
+
+            // Search in Asmaul Husna
+            asmaulData.forEach(item => {
+                if (item.latin.toLowerCase().includes(query)) {
+                    results.push({
+                        category: "Asmaul Husna",
+                        title: item.latin,
+                        sub: `Tahap ${item.stage}`,
+                        content: item.arab,
+                        target: "asmaul-husna"
+                    });
+                }
+            });
+
+            // Search in Dalil
+            dalilData.forEach(dalil => {
+                if (dalil.theme.toLowerCase().includes(query) || dalil.translation.toLowerCase().includes(query) || dalil.latin.toLowerCase().includes(query)) {
+                    results.push({
+                        category: "Dalil Utama",
+                        title: `${dalil.theme} (${dalil.code})`,
+                        sub: dalil.source,
+                        content: dalil.translation,
+                        target: "dalil-utama"
+                    });
+                }
+            });
+
+            // Search in Adab
+            adabData.forEach(adab => {
+                adab.points.forEach(pt => {
+                    if (pt.toLowerCase().includes(query)) {
+                        results.push({
+                            category: "Tatakrama",
+                            title: adab.title,
+                            sub: "Adab Keseharian",
+                            content: pt,
+                            target: "akhlaq-adab"
+                        });
+                    }
+                });
+            });
+
+            if (results.length === 0) {
+                container.innerHTML = `<div class="p-8 text-center text-slate-500 text-sm">Tidak ditemukan materi yang cocok dengan kata kunci.</div>`;
+            } else {
+                container.innerHTML = results.map(res => `
+                    <div onclick="navigateTo('${res.target}'); closeSearch();" class="p-4 bg-sand-50 hover:bg-emerald-50 border rounded-xl cursor-pointer transition space-y-1">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-bold text-emerald-800">${res.category}</span>
+                            <span class="text-[10px] bg-slate-200 text-slate-700 px-2 py-0.5 rounded font-medium">${res.sub}</span>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900">${res.title}</h4>
+                        <p class="text-xs text-slate-600 line-clamp-2">${res.content}</p>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // FLASHCARD / FOCUS MODE LOGIC
+        let fcDeck = [];
+        let fcIndex = 0;
+        let isCardFlipped = false;
+
+        function openFlashcardModal() {
+            openFlashcardCategory('all');
+        }
+
+        function openFlashcardCategory(cat) {
+            fcDeck = [];
+            if (cat === 'asmaul' || cat === 'all') {
+                asmaulData.forEach(a => fcDeck.push({
+                    type: 'asmaul',
+                    id: a.id,
+                    badge: `Asmaul Husna #${a.id}`,
+                    title: a.latin,
+                    arab: a.arab,
+                    latin: a.latin,
+                    meaning: `Tahap ${a.stage}`
+                }));
+            }
+            if (cat === 'doa' || cat === 'all') {
+                doaData.forEach(d => fcDeck.push({
+                    type: 'doa',
+                    id: d.id,
+                    badge: `Doa ${d.group}`,
+                    title: `${d.id}. ${d.title}`,
+                    arab: d.arab,
+                    latin: d.latin,
+                    meaning: d.source
+                }));
+            }
+            if (cat === 'dalil' || cat === 'all') {
+                dalilData.forEach(dl => fcDeck.push({
+                    type: 'dalil',
+                    id: dl.code,
+                    badge: dl.theme,
+                    title: `${dl.theme} (${dl.code})`,
+                    arab: dl.arab,
+                    latin: dl.latin,
+                    meaning: dl.translation
+                }));
+            }
+
+            fcIndex = 0;
+            isCardFlipped = false;
+            document.getElementById('flashcardModal').classList.remove('hidden');
+            renderFlashcard();
+        }
+
+        function closeFlashcardModal() {
+            document.getElementById('flashcardModal').classList.add('hidden');
+        }
+
+        function renderFlashcard() {
+            if (fcDeck.length === 0) return;
+            const card = fcDeck[fcIndex];
+            
+            document.getElementById('fcCounter').innerText = `Kartu ${fcIndex + 1} / ${fcDeck.length}`;
+            document.getElementById('fcBadge').innerText = card.badge;
+            document.getElementById('fcTitle').innerText = card.title;
+            document.getElementById('fcArabic').innerText = card.arab;
+            document.getElementById('fcLatin').innerText = card.latin;
+            document.getElementById('fcMeaning').innerText = card.meaning;
+
+            const front = document.getElementById('fcFront');
+            const back = document.getElementById('fcBack');
+
+            if (isCardFlipped) {
+                back.classList.remove('hidden');
+            } else {
+                back.classList.add('hidden');
+            }
+
+            // Update Check status
+            const isChecked = userProgress[card.type] && userProgress[card.type].includes(card.id);
+            const btnCheck = document.getElementById('btnFcCheck');
+            if (isChecked) {
+                btnCheck.className = "px-3 py-2 bg-emerald-600 text-white text-xs font-bold rounded-xl flex items-center gap-1.5";
+                btnCheck.innerHTML = `<i class="fas fa-check-circle"></i> Sudah Hafal`;
+            } else {
+                btnCheck.className = "px-3 py-2 bg-slate-200 text-slate-800 text-xs font-bold rounded-xl flex items-center gap-1.5";
+                btnCheck.innerHTML = `<i class="far fa-circle"></i> Mark Hafal`;
+            }
+        }
+
+        function flipCard() {
+            isCardFlipped = !isCardFlipped;
+            renderFlashcard();
+        }
+
+        function nextFlashcard() {
+            if (fcIndex < fcDeck.length - 1) {
+                fcIndex++;
+                isCardFlipped = false;
+                renderFlashcard();
+            }
+        }
+
+        function prevFlashcard() {
+            if (fcIndex > 0) {
+                fcIndex--;
+                isCardFlipped = false;
+                renderFlashcard();
+            }
+        }
+
+        function shuffleFlashcards() {
+            for (let i = fcDeck.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [fcDeck[i], fcDeck[j]] = [fcDeck[j], fcDeck[i]];
+            }
+            fcIndex = 0;
+            isCardFlipped = false;
+            renderFlashcard();
+        }
+
+        function toggleFcStatus() {
+            if (fcDeck.length === 0) return;
+            const card = fcDeck[fcIndex];
+            toggleCheck(card.type, card.id);
+            renderFlashcard();
+        }
+    </script>
+</body>
+</html>
